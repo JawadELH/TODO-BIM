@@ -1244,6 +1244,97 @@ a.btn{color:var(--ink);text-decoration:none} a.btn.primary{color:var(--accent-in
   .imp-cmp li{grid-template-columns:auto minmax(0,1fr)} .imp-cmp li span:last-child{grid-column:1/-1}
 }
 @media (max-width:820px){ .sy-ov .sheet-f{flex-wrap:wrap;gap:8px} .sy-ov .sheet-f .spacer{display:none} .sy-ov .sheet-f .btn{flex:1 1 40%} .sy-ov .sheet-f .btn.ghost{flex-basis:100%;order:3} }
+/* ---------- extension demandes internes ---------- */
+.kpi-row.rd-k{grid-template-columns:repeat(5,minmax(0,1fr))}
+.rd-wk{margin:12px 0}
+.rd-wks{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(118px,1fr);gap:8px;overflow-x:auto;padding-bottom:4px}
+.rd-w{border:1px solid var(--line);border-radius:8px;padding:8px;display:grid;gap:4px;background:var(--bg);min-width:0}
+.rd-w b{font-family:var(--f-mono);font-size:13px} .rd-w small{color:var(--muted);font-size:11.5px}
+.rd-w.cur{border-color:var(--accent);box-shadow:inset 0 2px 0 var(--accent)} .rd-w.over{border-color:color-mix(in srgb,var(--late) 60%,var(--line))}
+.rd-wb{height:34px;border-radius:4px;background:color-mix(in srgb,var(--line) 60%,transparent);display:flex;align-items:flex-end;overflow:hidden}
+.rd-wb i{display:block;width:100%;background:color-mix(in srgb,var(--accent) 70%,transparent)} .rd-w.over .rd-wb i{background:var(--late)}
+.rd-wv{display:flex;align-items:center;gap:4px;font-size:12.5px;font-family:var(--f-mono);white-space:nowrap}
+.rd-wv input{width:52px;min-width:0;padding:2px 5px;font:inherit;font-size:12px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
+.rd-w em{font-style:normal;font-size:12px;color:var(--done)} .rd-w em.late{color:var(--late);font-weight:700}
+.rd-w input.rd-c{width:100%;padding:2px 5px;font-size:11.5px;border:1px solid transparent;border-radius:5px;background:transparent;color:var(--muted)}
+.rd-w input.rd-c:hover,.rd-w input.rd-c:focus{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.rd-f{margin-bottom:10px}
+.rd-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.rd-r{display:grid;grid-template-columns:minmax(0,1fr) 92px 82px 108px 116px 58px;align-items:center;gap:10px;padding:7px 10px;background:var(--surface)}
+.rd-r.done{opacity:.6}
+.rd-main{display:flex;align-items:flex-start;gap:10px;text-align:left;background:none;border:0;color:inherit;font:inherit;padding:0;cursor:pointer;min-width:0}
+.rd-t{display:grid;gap:2px;min-width:0} .rd-t b{font-weight:600;font-size:13.5px;overflow-wrap:anywhere} .rd-t small{color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rd-main:hover b{color:var(--accent)}
+.rd-pr{flex:0 0 22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 12px var(--f-mono);border:1px solid var(--line);color:var(--muted)}
+.rd-pr.p0{background:color-mix(in srgb,var(--late) 20%,transparent);color:var(--late);border-color:color-mix(in srgb,var(--late) 50%,var(--line))}
+.rd-pr.p1{background:color-mix(in srgb,var(--today) 18%,transparent);color:var(--today)}
+.rd-pour{font-size:12.5px;font-family:var(--f-mono)} .rd-pour.late{color:var(--late);font-weight:700}
+.rd-h{display:grid;font-family:var(--f-mono);font-size:12.5px} .rd-h small{color:var(--muted);font-size:11px}
+.rd-r select{min-width:0;width:100%;font-size:12.5px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.rd-r select.rd-st{border-left:4px solid var(--sc)}
+.rd-sem{font-family:var(--f-mono)} .rd-tk{text-align:right;font-size:12.5px}
+.rd-h4{margin:4px 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:4px 8px;border-radius:5px}
+.rd-h4.blue{background:color-mix(in srgb,#5B9BD5 22%,transparent);color:var(--ink)} .rd-h4.yel{background:color-mix(in srgb,#FFD966 26%,transparent);color:var(--ink);margin-top:14px}
+.rd-form .ao-form.f3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rd-b{color:#5B9BD5} .rd-y{color:#C9A227}
+.rd-diff{margin:0;padding-left:18px;font-size:12.5px;display:grid;gap:3px} .rd-diff .mut{color:var(--muted);text-decoration:line-through}
+.rd-ov .sheet{max-width:min(720px,calc(100vw - 20px));width:100%}
+.ext .toggle{align-items:flex-start;padding:0} .ext .toggle span{font-size:13px}
+@media (max-width:820px){
+  .kpi-row.rd-k{grid-template-columns:repeat(2,minmax(0,1fr))} .kpi-row.rd-k .kc{grid-column:auto!important} .kpi-row.rd-k .kc:last-child{grid-column:1/-1!important}
+  .rd-r{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .rd-r .rd-main{grid-column:1/-1}
+  .rd-r .rd-pour{grid-column:1} .rd-r .rd-h{grid-column:2;text-align:right;display:flex;gap:6px;align-items:baseline}
+  .rd-r .rd-tk{grid-column:1/-1;text-align:left}
+  .rd-r .rd-tk:empty{display:none}
+  .rd-form .ao-form.f3,.rd-form .ao-form.f2{grid-template-columns:minmax(0,1fr)}
+}
+/* en-tête : un onglet de plus (extension) ne doit jamais faire déborder la page entre 821 et 1240 px */
+@media (min-width:821px) and (max-width:1020px){
+  nav.tabs a[aria-current="page"] span:not(.badge){display:none}
+  nav.tabs a{padding-left:8px;padding-right:8px}
+  .cartouche div:nth-of-type(3){display:none}
+}
+@media (min-width:1241px) and (max-width:1320px){ header:has(nav.tabs a[href="#rd"]) nav.tabs a span:not(.badge){display:none} header:has(nav.tabs a[href="#rd"]) nav.tabs a[aria-current="page"] span{display:inline} }
+/* ---------- congés payés ---------- */
+.dec-modes button{white-space:nowrap}
+.kpi-row.cp-k{grid-template-columns:repeat(5,minmax(0,1fr))}
+.cp-lay{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start;margin-top:12px}
+.cp-rs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));column-gap:18px}
+.cp-list .cp-r{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:7px 0;border-top:1px solid var(--line)}
+.cp-r.past{opacity:.62} .cp-r.cur .cp-st{color:var(--accent);font-weight:700}
+.cp-main{display:grid;gap:2px;text-align:left;background:none;border:0;color:inherit;font:inherit;padding:0;cursor:pointer;min-width:0}
+.cp-main b{font-family:var(--f-mono);font-size:13px} .cp-main small{color:var(--muted);font-size:12px;overflow-wrap:anywhere}
+.cp-main:hover b{color:var(--accent)}
+.cp-n{display:grid;text-align:right;font-family:var(--f-mono);font-size:13px} .cp-n small{font-size:10.5px}
+.cp-st{font-size:12px;color:var(--muted);min-width:52px;text-align:right}
+.cp-list>.btn{margin-top:8px}
+.cp-per{border-top:1px solid var(--line);padding:6px 0}
+.cp-per summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:4px 0;list-style:none}
+.cp-per summary::before{content:"▸";color:var(--muted)} .cp-per[open] summary::before{content:"▾"}
+.cp-per summary::-webkit-details-marker{display:none}
+.cp-t{font-size:12.5px} .cp-t td,.cp-t th{white-space:nowrap} .cp-t{min-width:880px} .cp-t th.cp-dth,.cp-t td.cp-dt{text-align:left;min-width:200px} .cp-t td.cp-dt{white-space:normal;font-family:var(--f-body);font-size:12px;color:var(--muted)} .cp-dt span{display:block;white-space:nowrap}
+.cp-t tr.is-cur td{background:color-mix(in srgb,var(--accent) 12%,transparent);font-weight:600} .cp-t tr.fut td{color:var(--muted)}
+.cp-t td.neg,.cp-calc .neg{color:var(--late);font-weight:700}
+.warn{color:var(--today)} .cp-chk.ok{color:var(--done)} .cp-chk.warn{color:var(--today)}
+.cp-calc{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);display:grid;gap:4px;font-size:13.5px}
+.cp-calc small{color:var(--muted);font-size:12px}
+.cp-hyp{font-size:13px;margin:6px 0} .cp-hyp .toggle{margin-top:6px}
+.cp-warn{margin:6px 0;padding-left:18px;font-size:12.5px;color:var(--today)}
+.cp-w{display:block;font-size:11.5px;margin-top:2px}
+.cp-it td:first-child{white-space:normal}
+.cp-ov .sheet{max-width:min(620px,calc(100vw - 20px));width:100%}
+.cp-setup .row{margin-top:10px}
+.cp-leg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+@media (max-width:820px){
+  .kpi-row.cp-k{grid-template-columns:repeat(2,minmax(0,1fr))} .kpi-row.cp-k .kc{grid-column:auto!important} .kpi-row.cp-k .kc:last-child{grid-column:1/-1!important}
+  .kpi-row.cp-k .kc-n{display:block}
+  .dec-modes{width:100%} .dec-modes button{flex:1 1 0;padding-left:6px;padding-right:6px}
+  .cp-form.ao-form.f2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .cp-form .wide{grid-column:1/-1}
+}
+.cp-it td{font-family:var(--f-body)} .cp-it td:last-child{text-align:left;max-width:360px} .cp-it td.num{font-family:var(--f-mono)}
+.bd-top .bd-cp{display:grid;color:inherit;text-decoration:none;background:var(--surface)} .bd-top .bd-cp>div{height:100%} .bd-top .bd-cp:hover b{color:var(--accent)}
+.bd-k>a.bd-cp>div{background:var(--surface);padding:10px 12px;display:grid;gap:2px}
 .mobile-tabs{display:none}
 .auth{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px));overflow-y:auto}
 .auth-card{width:min(400px,100%);display:grid;gap:12px}
@@ -1550,7 +1641,7 @@ a.btn{color:var(--ink);text-decoration:none} a.btn.primary{color:var(--accent-in
   TEAM.setMember = function(uid, patch){ return F.updateDoc(D("orgs", o(), "members", uid), patch); };
   /* données personnelles d'un collaborateur dans l'entreprise (réglages, projets perso, décompte, décompte publié) */
   function purgePeople(id, uid){
-    return Promise.all([F.deleteDoc(D("orgs", id, "people", uid, "meta", "prefs")), F.deleteDoc(D("orgs", id, "people", uid, "meta", "lists")), delColl(C("orgs", id, "people", uid, "decompte")), delColl(C("orgs", id, "people", uid, "pub"))]).catch(function(e){ console.warn("purge", e); });
+    return Promise.all([F.deleteDoc(D("orgs", id, "people", uid, "meta", "prefs")), F.deleteDoc(D("orgs", id, "people", uid, "meta", "lists")), delColl(C("orgs", id, "people", uid, "decompte")), delColl(C("orgs", id, "people", uid, "pub")), delColl(C("orgs", id, "people", uid, "rd")), delColl(C("orgs", id, "people", uid, "conges"))]).catch(function(e){ console.warn("purge", e); });
   }
   function delColl(col){
     return F.getDocs(col).then(function(qs){
@@ -1585,6 +1676,9 @@ a.btn{color:var(--ink);text-decoration:none} a.btn.primary{color:var(--accent-in
   };
   TEAM.publish = function(month, data){ return F.setDoc(D("orgs", o(), "people", TEAM.uid, "pub", month), data); };
   TEAM.watchPub = function(uid, month, cb){ return F.onSnapshot(D("orgs", o(), "people", uid, "pub", month), function(s){ cb(s.exists() ? s.data() : null); }, function(){ cb(null); }); };
+  /* lecture (chef / admin) des données d'un collaborateur : demandes internes, réglages */
+  TEAM.watchMember = function(uid, name, cb){ return F.onSnapshot(C("orgs", o(), "people", uid, name), function(qs){ cb(qs.docs.map(function(d){ return Object.assign({}, d.data(), {id:d.id}); })); }, function(){ cb([]); }); };
+  TEAM.watchMemberDoc = function(uid, path, cb){ var p = path.split("/"); return F.onSnapshot(D.apply(null, ["orgs", o(), "people", uid].concat(p)), function(s){ cb(s.exists() ? s.data() : null); }, function(){ cb(null); }); };
   TEAM.watchInvites = function(cb){ return F.onSnapshot(C("orgs", o(), "invites"), function(qs){ cb(qs.docs.map(function(d){ return d.data(); })); }, function(){ cb([]); }); };
   /* lecture de l'espace perso, pour copier ses données dans l'entreprise */
   TEAM.readPerso = function(){
@@ -1784,6 +1878,7 @@ const VIEWS = [
   {k:"planning", label:"Planning", icon:'<rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3M7 13.5h4M7 17h7"/>'},
   {k:"heures", label:"Heures", icon:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'},
   {k:"chiffrage", label:"Chiffrage AO", short:"AO", icon:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/><path d="M4 7v14h11" opacity=".5"/>'},
+  {k:"rd", label:"R&D", icon:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>'},
   {k:"matrice", label:"Matrice", icon:'<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/>'},
   {k:"reglages", label:"Réglages", icon:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'},
   {k:"aide", label:"Aide", icon:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01"/>'},
@@ -1901,10 +1996,11 @@ function renderChrome(){
   $("#c-open").textContent = S.status === "ready" ? open : "—";
   const late = live().filter(t => alerte(t) === "late").length;
   const link = v => `<a href="#${v.k}" ${S.view === v.k ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${v.icon}</svg><span data-s="${v.short || v.label}">${v.label}</span>${v.k === "jour" && late ? `<span class="badge">${late}</span>` : ""}</a>`;
-  const vis = VIEWS.filter(v => !v.hidden && !dispHiddenTab(v.k));
+  { const rv = VIEWS.find(v => v.k === "rd"), nm = rdCfg().nom; if (rv) { rv.label = nm; rv.short = nm.length > 8 ? nm.slice(0, 7) + "." : nm; } }
+  const vis = VIEWS.filter(v => !v.hidden && !dispHiddenTab(v.k) && (v.k !== "rd" || rdOn() || rdChefView()));
   $("#tabs").innerHTML = vis.map(link).join("");
   $("#mtabs").innerHTML = vis.map(link).join(""); $("#mtabs").style.gridTemplateColumns = `repeat(${vis.filter(v => v.k !== "aide").length},1fr)`;
-  $("#fab").hidden = !(S.status === "ready" && S.canWrite !== false && S.view !== "reglages" && S.view !== "heures" && S.view !== "chiffrage" && S.view !== "aide" && S.view !== "equipe" && S.view !== "profil" && S.view !== "admin");
+  $("#fab").hidden = !(S.status === "ready" && S.canWrite !== false && S.view !== "reglages" && S.view !== "heures" && S.view !== "chiffrage" && S.view !== "aide" && S.view !== "equipe" && S.view !== "profil" && S.view !== "admin" && S.view !== "rd");
   teamChrome();
   { const hb = $("#help-btn"); if (hb) { if (S.view === "aide") hb.setAttribute("aria-current", "page"); else hb.removeAttribute("aria-current"); } }
 }
@@ -2094,6 +2190,7 @@ function viewReglages(){
   return `<div class="view-head"><div><h1>Réglages</h1><div class="sub">Listes, import / export Excel, archives et installation sur iPhone.</div></div></div>
   <div class="settings">
     ${teamSpacePanel()}
+    ${rdSettingsPanel()}
     ${TM() ? teamProjectsPanel() : listBlock("projets", "Projets", "Ordre d'affichage des projets dans les filtres et le tableau de bord.")}
     ${TM() ? teamRespPanel() : listBlock("responsables", "Responsables", "Proposés dans le champ Responsable.")}
     ${listBlock("types", "Types", "Exemples : Amélioration, Ajout, Correctif.")}
@@ -2714,7 +2811,7 @@ function feries(y){
 const ferieOn = d => feries(Number(d.slice(0, 4)))[d] || "";
 const monthOf = d => d.slice(0, 7);
 const decDoc = d => (S.decDocs && S.decDocs[monthOf(d)]) || {};
-function absOn(d){ const a = (decDoc(d).abs || {})[d]; if (a && a.type) return a; const f = ferieOn(d); return f && capOn(d) > 0 ? {type:"Férié", part:"j", auto:true, label:f} : null; }
+function absOn(d){ const a = (decDoc(d).abs || {})[d]; if (a && a.type) return a; const f = ferieOn(d); if (f && capOn(d) > 0) return {type:"Férié", part:"j", auto:true, label:f}; return typeof cpOn === "function" ? cpOn(d) : null; }
 function absHours(d){ const a = absOn(d); if (!a) return 0; const c = capOn(d); return a.part === "j" ? c : c / 2; }
 
 /* créneaux comptés un jour donné (créneaux placés + tâches récurrentes) */
@@ -2857,7 +2954,9 @@ function decRecap(days){
 }
 function decWkColl(){ try { return new Set(JSON.parse(localStorage.getItem("todobim.decwk") || "[]")); } catch (e) { return new Set(); } }
 function decWkSave(c){ try { localStorage.setItem("todobim.decwk", JSON.stringify([...c].slice(-200))); } catch (e) {} }
+const decModes = D => `<div class="segbar big dec-modes"><button data-act="dec-mode" data-m="semaine" aria-pressed="${D.mode === "semaine"}">Semaine</button><button data-act="dec-mode" data-m="mois" aria-pressed="${D.mode === "mois"}">Mois</button><button data-act="dec-mode" data-m="annee" aria-pressed="${D.mode === "annee"}">Année</button><button data-act="dec-mode" data-m="conges" aria-pressed="${D.mode === "conges"}">Congés</button></div>`;
 function viewHeures(){
+  if (S.dec.mode === "conges") return viewConges(decModes(S.dec));
   const {P, days} = decData(), R = decRecap(days), D = S.dec, td = today(), ro = S.canWrite === false;
   const ecart = R.tot - R.cap;
   let html = "", wk = null, wTot = 0, wCap = 0, wHtml = "", wDays = [], wN = 0;
@@ -2898,7 +2997,7 @@ function viewHeures(){
   flushWk();
   if (D.mode === "annee") html = decYearHtml(days);
   const nImp = days.reduce((s, x) => s + x.rows.filter(r => r.imp).length, 0);
-  const nav = `<div class="segbar big"><button data-act="dec-mode" data-m="semaine" aria-pressed="${D.mode === "semaine"}">Semaine</button><button data-act="dec-mode" data-m="mois" aria-pressed="${D.mode === "mois"}">Mois</button><button data-act="dec-mode" data-m="annee" aria-pressed="${D.mode === "annee"}">Année</button></div>
+  const nav = `${decModes(D)}
     <div class="segbar"><button data-act="dec-prev" aria-label="Précédent">‹</button><button data-act="dec-today">Aujourd'hui</button><button data-act="dec-next" aria-label="Suivant">›</button></div>
     <label class="toggle"><input type="checkbox" id="dec-upto" ${D.upto ? "checked" : ""}> Jusqu'à aujourd'hui</label>`;
   return `<div class="view-head plan-head"><div><div class="eyebrow">Décompte des heures · ${esc(collabName())}</div><h1>${P.label}</h1></div><div class="pnav">${nav}</div></div>
@@ -2939,6 +3038,7 @@ async function decChange(el){
   const d = (row || day).dataset.d, month = monthOf(d);
   if (f === "abs" || f === "part") {
     const v = el.value;
+    if (await cpDayChange(d, f, v)) { render(true); return; }
     await decSave(month, c => { if (f === "abs") { if (v) c.abs[d] = {type:v, part:(c.abs[d] && c.abs[d].part) || "j"}; else delete c.abs[d]; } else if (c.abs[d]) c.abs[d].part = v; });
     render(true); return;
   }
@@ -2978,8 +3078,8 @@ async function decAction(act, a){
     let n = 0; for (const m of months) { const k = ((S.decDocs[m] || {}).manual || []).filter(x => x.imp).length; if (k) { n += k; await decSave(m, c => { c.manual = c.manual.filter(x => !x.imp); }); } }
     toast(`${n} ligne${n > 1 ? "s" : ""} importée${n > 1 ? "s" : ""} retirée${n > 1 ? "s" : ""}`); render(true); return;
   }
-  if (act === "dec-wk") { const sec = a.closest(".dec-wkg"), k = sec.dataset.wk, c = decWkColl(); sec.classList.toggle("coll"); if (sec.classList.contains("coll")) c.add(k); else c.delete(k); a.setAttribute("aria-expanded", String(!sec.classList.contains("coll"))); decWkSave(c); return; }
-  if (act === "dec-wkall") { const c = decWkColl(), v = a.dataset.v; document.querySelectorAll(".dec-wkg").forEach(sec => { const fold = v === "fold" || (v === "cur" && !sec.classList.contains("is-cur")); sec.classList.toggle("coll", fold); sec.querySelector(".dec-wkh").setAttribute("aria-expanded", String(!fold)); if (fold) c.add(sec.dataset.wk); else c.delete(sec.dataset.wk); }); decWkSave(c); return; }
+  if (act === "dec-wk") { const sec = a.closest(".dec-wkg"), k = sec.dataset.wk, c = decWkColl(); sec.classList.toggle("coll"); if (sec.classList.contains("coll")) c.add(k); else c.delete(k); a.setAttribute("aria-expanded", String(!sec.classList.contains("coll"))); decWkSave(c); decFit(sec); return; }
+  if (act === "dec-wkall") { const c = decWkColl(), v = a.dataset.v; document.querySelectorAll(".dec-wkg").forEach(sec => { const fold = v === "fold" || (v === "cur" && !sec.classList.contains("is-cur")); sec.classList.toggle("coll", fold); sec.querySelector(".dec-wkh").setAttribute("aria-expanded", String(!fold)); if (fold) c.add(sec.dataset.wk); else c.delete(sec.dataset.wk); }); decWkSave(c); decFit(); return; }
   if (act === "dec-today") { D.ref = today(); render(true); return; }
   if (act === "dec-prev" || act === "dec-next") {
     const k = act === "dec-next" ? 1 : -1, r = parseYmd(validYmd(D.ref) ? D.ref : today());
@@ -3094,7 +3194,8 @@ async function decRefsSave(){
 }
 
 /* hauteur automatique des descriptions */
-function decFit(root){ (root || document).querySelectorAll(".dec-row textarea").forEach(ta => { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + 2 + "px"; }); }
+/* une semaine repliée n'a pas de hauteur : on ne mesure que ce qui est affiché, et on remesure au dépliage */
+function decFit(root){ (root || document).querySelectorAll(".dec-row textarea").forEach(ta => { if (!ta.offsetParent) return; ta.style.height = "auto"; ta.style.height = Math.max(28, ta.scrollHeight + 2) + "px"; }); }
 document.addEventListener("input", ev => { if (ev.target.matches && ev.target.matches(".dec-row textarea")) decFit(ev.target.parentNode); });
 window.addEventListener("resize", () => { if (S.view === "heures") decFit(); });
 
@@ -4554,7 +4655,8 @@ const HELP = [
       <tr><td><b>Ma journée</b></td><td>Ce qui demande ton attention aujourd'hui.</td></tr>
       <tr><td><b>Tâches</b></td><td>La liste complète, avec filtres et recherche.</td></tr>
       <tr><td><b>Planning</b></td><td>L'agenda de la semaine et le Gantt.</td></tr>
-      <tr><td><b>Heures</b></td><td>Le décompte des heures, prêt à coller dans ton tableau.</td></tr>
+      <tr><td><b>Heures</b></td><td>Le décompte des heures, prêt à coller dans ton tableau, et le compteur de congés payés.</td></tr>
+      <tr><td><b>R&D</b></td><td>Extension facultative : les demandes internes que tu reçois, liées à tes tâches (Réglages ▸ Extensions).</td></tr>
       <tr><td><b>Chiffrage AO</b></td><td>Les appels d'offres : pièces du marché, chiffrage, offre PDF.</td></tr>
       <tr><td><b>Matrice</b></td><td>La matrice d'Eisenhower (urgent / important).</td></tr>
       <tr><td><b>Bord</b></td><td>Le tableau de bord : AO, projets, plan de charge, organisation.</td></tr>
@@ -4603,6 +4705,29 @@ const HELP = [
     <p>Un jour importé sans passer par l'agenda affiche « le temps de l'agenda n'est pas compté » s'il a aussi des créneaux, avec un bouton <b>Revenir à l'agenda</b>.</p>
     <h4>Récupérer les lignes</h4><ul><li><b>Copier pour Excel</b> : colonnes A à I, prêtes à coller sous ton tableau. Chaque jour a aussi son bouton « Copier ».</li><li><b>Exporter en .xlsx</b> : le décompte mis en forme et un récapitulatif.</li></ul>${go("heures", "Ouvrir le décompte")}`},
 
+  {k:"conges", t:"Congés payés", html:`
+    <p>Heures ▸ <b>Congés</b> tient ton compteur de congés : acquis, pris et solde sur la période en cours (<b>N</b>) et la précédente (<b>N-1</b>), mois par mois, comme ton tableau Excel.</p>
+    <h4>Démarrer</h4><ol class="hp-steps"><li><b>Importer mon tableau…</b> ▸ ton fichier de suivi (colonnes Période, Acquis N-1, Pris N-1, Solde N-1, Acquis N, Pris N, Solde N, Solde total, Jours posés ce mois, Dates des congés posés).</li>
+      <li>L'aperçu lit les hypothèses (jours acquis par mois, acquis du premier mois), liste les périodes posées et <b>recalcule tout le compteur pour vérifier qu'il redonne les soldes du fichier</b>.</li>
+      <li>Les dates mal saisies sont signalées et corrigées (année incomplète, fin avant le début, double barre) ; le nombre de jours écrit dans le fichier est gardé, même s'il diffère du calcul.</li>
+      <li>Ou <b>Hypothèses</b> pour tout renseigner à la main.</li></ol>
+    <h4>Jours ouvrables ou ouvrés</h4><ul><li><b>Ouvrables</b> (lundi → samedi, 2,5 j par mois, 30 j par an) : les samedis compris dans la période sont décomptés ; un samedi qui <b>ouvre</b> la période ne l'est pas.</li>
+      <li><b>Ouvrés</b> (lundi → vendredi, 2,08 j par mois, 25 j par an).</li><li>Les jours fériés ne sont jamais décomptés. Une fraction de jour acquise est arrondie à l'entier supérieur à la fin de la période (réglable).</li>
+      <li>Les jours posés sont pris d'abord sur N-1, puis sur N. Au 1er juin, N devient N-1 ; un reliquat N-1 non pris est signalé.</li></ul>
+    <h4>Poser des congés</h4><ul><li><b>Poser des congés</b> : du, au, demi-journée possible ; la fenêtre affiche le nombre de jours décomptés, les jours non décomptés (fériés, dimanches) et ton solde après la pose. Tu peux forcer le nombre de jours.</li>
+      <li>Les congés posés deviennent des absences : ils baissent ta capacité dans Heures, le plan de charge et le tableau de bord.</li>
+      <li>Dans Heures, choisir <b>Congé</b> sur un jour pose un jour de congé ; repasser un jour de congé à <b>Présent</b> (ou Maladie…) le retire de sa période.</li></ul>
+    <p><b>Exporter (format du tableau)</b> produit le même tableau mois par mois (formules de solde et de contrôle comprises) et la liste des congés posés : tu peux le réimporter plus tard.</p>${go("heures", "Ouvrir Heures")}`},
+  {k:"rd", t:"Demandes internes (R&D)", html:`
+    <p>Une extension pour les collaborateurs qui reçoivent des demandes particulières de leurs collègues (développements R&D, outils, support…). Active-la dans Réglages ▸ <b>Extensions</b> et donne un nom à l'onglet (par défaut « R&D »).</p>
+    <h4>Importer et tenir à jour le fichier Excel</h4><ol class="hp-steps"><li><b>Importer l'Excel…</b> ▸ le fichier de suivi (feuilles Demandes, Planning R&D, Listes).</li>
+      <li>L'aperçu montre les demandes nouvelles, mises à jour et identiques, champ par champ. Règle des couleurs : les colonnes <b>bleues</b> (demandeur : solution, version, demande, priorité, pour le, contrainte, fichiers, qui, projet) suivent l'Excel ; les colonnes <b>jaunes</b> (toi : fait le, temps estimé, temps réel, semaine, statut) gardent ta valeur dans l'app, l'Excel ne remplit que les cases vides.</li>
+      <li>Réimporte le fichier quand tes collègues l'ont complété : rien n'est dupliqué.</li></ol>
+    <h4>Une tâche par demande</h4><ul><li>Chaque demande non terminée crée une tâche dans le projet choisi (Réglages ▸ Extensions), placée sur la semaine planifiée.</li>
+      <li>La synchronisation va dans les deux sens : statut, semaine, temps estimé ; le <b>temps réel</b> se calcule depuis les créneaux posés sur la tâche, donc il alimente aussi ton décompte des heures.</li>
+      <li>Une demande peut être liée à <b>plusieurs projets</b> de l'entreprise.</li></ul>
+    <h4>Charge par semaine</h4><p>Pour chaque semaine : heures disponibles (à toi), heures planifiées et reste, en rouge si la semaine est surchargée.</p>
+    <p><b>Exporter l'Excel</b> redonne le même fichier (couleurs, listes, formules du planning) avec une colonne masquée « Réf. app » qui fiabilise les réimports : partage de préférence ce fichier-là. En équipe, ton chef de service et les administrateurs consultent tes demandes en lecture seule (sélecteur Collaborateur).</p>`},
   {k:"chiffrage", t:"Chiffrage AO", html:`
     <p>Sur ordinateur, survole un chiffrage (liste des chiffrages ou tableau de bord) pour voir sa fiche : remise, montant, ratios, missions, planning, pièces du marché lues, suivi s'il est gagné.</p>
     <p>La liste des chiffrages affiche leur statut (en cours, envoyé, gagné, perdu, abandonné), leur montant et la prochaine remise. Un chiffrage se fait en <b>7 étapes</b> ; la barre du bas montre le total en permanence et passe à l'étape suivante.</p>
@@ -5168,7 +5293,7 @@ function teamBordBlock(){
 const DISP_KEY = "todobim.disp";
 function dispGet(){ try { return JSON.parse(localStorage.getItem(DISP_KEY) || "{}") || {}; } catch (e) { return {}; } }
 function dispSet(patch){ const d = {...dispGet(), ...patch}; try { localStorage.setItem(DISP_KEY, JSON.stringify(d)); } catch (e) {} applyDisp(); return d; }
-const TAB_OPT = [["taches", "Tâches"], ["planning", "Planning"], ["heures", "Heures"], ["chiffrage", "Chiffrage AO"], ["matrice", "Matrice"], ["aide", "Aide"]];
+const TAB_OPT = [["taches", "Tâches"], ["planning", "Planning"], ["heures", "Heures"], ["chiffrage", "Chiffrage AO"], ["matrice", "Matrice"], ["rd", "Demandes internes"], ["aide", "Aide"]];
 const dispHiddenTab = k => (dispGet().hideTabs || []).includes(k);
 function dispHome(){ const h = dispGet().home; return h && VIEWS.some(v => v.k === h && !v.hidden) ? h : "bord"; }
 function applyDisp(){
@@ -5198,6 +5323,7 @@ const ST_GROUPS = [
   ["listes", "Listes", h => /^(Projets|Responsables|Types)/.test(h)],
   ["planning", "Planning", h => /^Planning/.test(h)],
   ["heures", "Décompte des heures", h => /^Décompte/.test(h)],
+  ["ext", "Extensions", h => h === "Extensions"],
   ["donnees", "Import, export et sauvegarde", h => /^(Import|Export|Sauvegarde|Archives)/.test(h)],
 ];
 function viewReglages2(){
@@ -5209,7 +5335,7 @@ function viewReglages2(){
   for (const p of panels) { const h = ((p.querySelector("h2") || {}).textContent || "").trim(); const g = ST_GROUPS.find(x => x[2](h)); (g ? groups.get(g[0]) : other).push(p); }
   const secs = ST_GROUPS.filter(g => groups.get(g[0]).length).map(g => [g[0], g[1], groups.get(g[0])]);
   if (other.length) secs.push(["app", "Application", other]);
-  const sub = head && head.querySelector(".sub"); if (sub) sub.textContent = "Affichage, compte, listes, planning, décompte des heures, import et sauvegarde.";
+  const sub = head && head.querySelector(".sub"); if (sub) sub.textContent = "Affichage, compte, listes, planning, décompte des heures, extensions, import et sauvegarde.";
   const html = p => p.outerHTML;
   return `${head ? head.outerHTML : ""}<div class="hp-lay st-lay"><nav class="hp-toc" aria-label="Sections des réglages">${secs.map(([k, l]) => `<button data-help="st-${k}">${l}</button>`).join("")}</nav>
     <div class="hp-main">${secs.map(([k, l, ps]) => `<section class="st-sec" id="hp-st-${k}"><h2 class="st-h">${l}</h2><div class="settings">${ps.map(html).join("")}</div></section>`).join("")}</div></div>`;
@@ -5546,12 +5672,15 @@ function bordTop(){
       ${kc("En retard", late.length, late.length ? "tâches à rattraper" : "rien en retard", late.length ? "late" : "ok")}
       ${kc("Échéances ≤ 7 j", soon.length, "tâches à rendre")}
       ${kc("Prochaine remise AO", nextAo ? (diffDays(nextAo.remise, td) ? "J−" + diffDays(nextAo.remise, td) : "Aujourd'hui") : "—", nextAo ? esc(nextAo.nom || "Sans titre") : "aucune remise à venir", nextAo && diffDays(nextAo.remise, td) <= 3 ? "late" : "")}
+      ${(() => { if (typeof cpCfg !== "function" || !cpCfg().start) return ""; const L = cpLedger(), r = L.rows.find(x => x.ym === monthOf(td)); if (!r) return ""; const nx = [...S.cp.values()].filter(x => x.au >= td).sort((a, b) => a.du.localeCompare(b.du))[0];
+        return `<a class="bd-cp" href="#heures" data-act="bd-cp">${kc("Congés", jfmt(r.tot) + " j", nx ? `solde · prochains le ${fmt(nx.du)}` : `solde${r.n1s > 0 ? ` dont ${jfmt(r.n1s)} j N-1` : ""}`, r.tot < 0 ? "late" : "")}</a>`; })()}
     </div>
     <div class="bd-two">
       <section class="panel bd-b"><div class="bd-h"><h2>Aujourd'hui</h2><a class="lnk" href="#planning">Agenda ›</a></div>${tdBl.length ? `<ul class="bt-l">${tdBl.slice(0, 8).map(it).join("")}</ul>` : `<p class="sub" style="margin:0">Aucun créneau placé aujourd'hui. <a class="lnk" href="#planning">Organiser ma journée ›</a></p>`}</section>
       <section class="panel bd-b"><div class="bd-h"><h2>À traiter</h2><a class="lnk" href="#jour">Ma journée ›</a></div>${late.length || soon.length ? `<ul class="bt-l">${[...late, ...soon].slice(0, 7).map(tl).join("")}</ul>` : `<p class="sub" style="margin:0">Rien en retard ni à rendre dans les 7 jours.</p>`}</section>
     </div>`;
 }
+document.addEventListener("click", ev => { const a = ev.target.closest && ev.target.closest('[data-act="bd-cp"]'); if (a) { S.dec.mode = "conges"; try { saveDecUi(); } catch (e) {} } }, true);
 document.addEventListener("click", ev => {
   const a = ev.target.closest && ev.target.closest('[data-act="pc-unit"]'); if (!a) return;
   ev.preventDefault(); ev.stopPropagation(); S.pcUnit = a.dataset.v; try { localStorage.setItem("todobim.pcUnit", S.pcUnit); } catch (e) {} render(true);
@@ -5784,6 +5913,686 @@ document.addEventListener("click", async ev => {
 }, true);
 document.addEventListener("change", ev => { const t = ev.target; if (t && t.dataset && t.dataset.imp != null && S.imp) { S.imp.days[Number(t.dataset.imp)].pick = t.value; ev.stopPropagation(); } }, true);
 
+/* ---------- Extension « Demandes internes » (ex. R&D) : suivi des demandes reçues, lié aux tâches et au planning ---------- */
+const RD_ST = ["À faire", "En cours", "En attente", "Terminé"];
+const RD_PRIO = ["1 - Haute", "2 - Moyenne", "3 - Basse"];
+const RD_BLUE = ["sol", "ver", "dem", "prio", "pour", "contr", "fich", "qui", "projets"];   // remplies par le demandeur (l'Excel fait foi)
+const RD_YEL = ["fait", "est", "reel", "sem", "statut"];                                       // remplies par toi (l'app fait foi)
+const RD_LAB = {sol:"Solution", ver:"Version", dem:"Demande", prio:"Priorité", pour:"Pour le", fait:"Fait le", est:"Temps estimé (h)", reel:"Temps réel (h)", contr:"Contrainte", fich:"Fichiers exemples", qui:"Qui fait la demande", projets:"Pour quel projet", sem:"Semaine planifiée", statut:"Statut"};
+S.rd = new Map(); S.rdF = {st:"open", sol:"", qui:"", q:""}; S.rdWho = ""; S.rdOther = {};
+const rdCfg = () => { const c = (S.prefs && S.prefs.rd) || {}; return {on:!!c.on, nom:c.nom || "R&D", projet:c.projet || "", weeks:c.weeks || {}, lists:{qui:[], projets:[], solutions:[], ...(c.lists || {})}}; };
+const rdOn = () => !!(S.prefs && S.prefs.rd && S.prefs.rd.on);
+/* chef / admin : consulte les demandes de ses collaborateurs même sans utiliser l'extension */
+const rdChefView = () => { const T = typeof TM === "function" ? TM() : null; return !!(T && T.me && (T.me.role === "admin" || T.me.role === "chef") && T.visibleMembers().length > 1); };
+const rdSaveCfg = patch => savePrefs({rd:{...((S.prefs && S.prefs.rd) || {}), ...patch}});
+const prioApp = p => /^1|haut/i.test(String(p || "")) ? "Haute" : /^2|moy/i.test(String(p || "")) ? "Moyenne" : /^3|bas/i.test(String(p || "")) ? "Basse" : "";
+const prioRd = p => p === "Haute" ? RD_PRIO[0] : p === "Moyenne" ? RD_PRIO[1] : p === "Basse" ? RD_PRIO[2] : "";
+function weekKey(d){ const t = parseYmd(d); const th = new Date(t.getFullYear(), t.getMonth(), t.getDate() + 3 - ((t.getDay() + 6) % 7)); return `${th.getFullYear()}-S${z2(isoWeek(t))}`; }
+function weekMon(k){ const m = String(k || "").match(/^(\d{4})-S(\d{1,2})$/); if (!m) return ""; const j4 = new Date(Number(m[1]), 0, 4), mon = new Date(j4); mon.setDate(j4.getDate() - ((j4.getDay() + 6) % 7) + (Number(m[2]) - 1) * 7); return ymd(mon); }
+const rdNum = v => { const n = parseFloat(String(v ?? "").replace(",", ".")); return isFinite(n) ? Math.round(n * 100) / 100 : ""; };
+const rdKey = d => [norm(d.sol), norm(d.ver), norm(d.dem)].join("|");
+const rdSplitProj = v => String(v ?? "").split(/[,;/+]| et /).map(x => x.trim()).filter(Boolean);
+function rdComment(d){ return [d.qui ? `Demandé par ${d.qui}` : "", (d.projets || []).length ? `Pour : ${d.projets.join(", ")}` : "", d.contr ? `Contrainte : ${d.contr}` : "", d.fich && norm(d.fich) !== "ras" ? `Fichiers de test : ${d.fich}` : "", `Demande ${rdCfg().nom}`].filter(Boolean).join("\n"); }
+function rdTaskBody(d){
+  const mon = weekMon(d.sem), done = d.statut === "Terminé";
+  return {projet:rdCfg().projet || "", tache:String(d.dem || "Demande").slice(0, 160), statut:RD_ST.includes(d.statut) ? d.statut : "À faire", priorite:prioApp(d.prio), echeance:validYmd(d.pour) ? d.pour : "",
+    theme:[d.sol, d.ver].filter(Boolean).join(" "), type:"Demande " + rdCfg().nom, cloture:done ? (validYmd(d.fait) ? d.fait : today()) : "", commentaires:rdComment(d),
+    debut:mon || "", fin:mon ? addDays(mon, 4) : "", heures:d.est === "" || d.est == null ? "" : Number(d.est), rd:d.id};
+}
+async function rdCreateTask(d){
+  const id = await saveTask({id:null, urgent:null, important:null, responsable:"", jours:[], blocs:[], avancement:0, ...rdTaskBody(d)});
+  if (id) await S.db.doc("rd/" + d.id).update({task:id, updated:nowIso()});
+  return id;
+}
+/* modifications faites dans l'app : la demande et sa tâche */
+async function rdSave(d, patch){
+  S.rdBusy = Date.now();
+  const nd = {...d, ...patch, updated:nowIso()}; S.rd.set(d.id, nd); schedule();
+  try { await S.db.doc("rd/" + d.id).update({...patch, updated:nd.updated}); } catch (e) { fail(e); }
+  const t = d.task && S.tasks.get(d.task);
+  if (t) { const b = rdTaskBody(nd), up = {};
+    for (const k of ["tache", "statut", "priorite", "echeance", "theme", "cloture", "commentaires", "heures"]) if (String(t[k] ?? "") !== String(b[k] ?? "")) up[k] = b[k];
+    if ("sem" in patch && (b.debut || !validYmd(t.debut) || weekKey(t.debut) !== nd.sem)) { up.debut = b.debut; up.fin = b.fin; }
+    if (Object.keys(up).length) { try { await S.db.doc("tasks/" + t.id).update({...up, updated:nowIso()}); } catch (e) { fail(e); } } }
+  else if (!d.task && nd.statut !== "Terminé") { try { await rdCreateTask(nd); } catch (e) { fail(e); } }
+}
+/* la tâche (agenda, fiche) fait foi pour le statut, le temps estimé, la semaine et le temps réel */
+let rdRecT = 0;
+function rdDerived(d, t){
+  const out = {};
+  if (RD_ST.includes(t.statut) && t.statut !== d.statut) out.statut = t.statut;
+  if (t.statut === "Récurrent" && d.statut !== "En cours") out.statut = "En cours";
+  const est = t.heures === "" || t.heures == null ? "" : Number(t.heures); if (String(est) !== String(d.est ?? "")) out.est = est;
+  const sem = validYmd(t.debut) ? weekKey(t.debut) : ""; if (sem !== (d.sem || "") && (sem || d.sem)) out.sem = sem;
+  const td = today(), min = blocsOf(t).filter(b => b.d <= td).reduce((s, b) => s + b.m, 0); if (min > 0) { const r = Math.round(min / 60 * 4) / 4; if (r !== Number(d.reel)) out.reel = r; }
+  const fait = t.statut === "Terminé" ? (validYmd(t.cloture) ? t.cloture : d.fait || td) : ""; if (fait !== (d.fait || "") && (t.statut === "Terminé" || d.statut === "Terminé")) out.fait = fait;
+  return out;
+}
+async function rdReconcile(){
+  if (Date.now() - (S.rdBusy || 0) < 4000) return;
+  if (!rdOn() || S.status !== "ready" || !S.confirmed || S.canWrite === false || !S.rd.size) return;
+  for (const d of S.rd.values()) {
+    if (!d.task) continue;
+    const t = S.tasks.get(d.task);
+    if (!t) { await S.db.doc("rd/" + d.id).update({task:""}).catch(() => {}); continue; }
+    const p = rdDerived(d, t); if (Object.keys(p).length) await S.db.doc("rd/" + d.id).update({...p, updated:nowIso()}).catch(() => {});
+  }
+}
+setInterval(() => { clearTimeout(rdRecT); rdRecT = setTimeout(rdReconcile, 300); }, 5000);
+function rdSubscribe(db){
+  db.collection("rd").onSnapshot(snap => { S.rd = new Map(snap.docs.map(x => [x.id, {...x.data(), id:x.id}])); if (S.view === "rd") schedule(); }, () => {});
+}
+
+/* ---------- vue ---------- */
+const rdStCol = {"À faire":"--s-afaire", "En cours":"--s-encours", "En attente":"--s-attente", "Terminé":"--s-termine"};
+function rdList(){
+  const T = typeof TM === "function" ? TM() : null;
+  if (T && S.rdWho && S.rdWho !== T.uid) { const o = S.rdOther[S.rdWho]; return o ? [...o.list] : []; }
+  return [...S.rd.values()];
+}
+function rdWeeks(list, cfg){
+  const cur = weekKey(today()), keys = new Set([cur]);
+  for (let i = 1; i < 10; i++) keys.add(weekKey(addDays(today(), 7 * i)));
+  for (const d of list) if (d.sem && d.sem >= cur && d.statut !== "Terminé") keys.add(d.sem);
+  return [...keys].sort().slice(0, 14).map(k => { const plan = list.filter(d => d.sem === k).reduce((s, d) => s + (Number(d.est) || 0), 0), w = cfg.weeks[k] || {}; return {k, mon:weekMon(k), plan, dispo:w.dispo === "" || w.dispo == null ? "" : Number(w.dispo), com:w.com || ""}; });
+}
+function viewRd(){
+  const T = typeof TM === "function" ? TM() : null, other = T && S.rdWho && S.rdWho !== T.uid;
+  const cfg = other ? {...rdCfg(), ...((S.rdOther[S.rdWho] || {}).cfg || {}), lists:{qui:[], projets:[], solutions:[], ...(((S.rdOther[S.rdWho] || {}).cfg || {}).lists || {})}} : rdCfg();
+  const ro = S.canWrite === false || other, nom = esc(cfg.nom || "R&D");
+  const who = T && T.visibleMembers().length > 1 ? `<div class="seg-block tm-who-b"><span class="seg-label">Collaborateur</span><select class="ctl" data-rd-who aria-label="Collaborateur">${T.visibleMembers().map(m => `<option value="${esc(m.uid)}" ${(S.rdWho || T.uid) === m.uid ? "selected" : ""}>${esc(T.nameOf(m.uid))}${m.uid === T.uid ? " (moi)" : ""}</option>`).join("")}</select></div>` : "";
+  if (!rdOn() && !other) return `<div class="view-head"><div><div class="eyebrow">Extension</div><h1>Demandes internes</h1><div class="sub">Suis les demandes que tes collègues t'adressent (R&D, support, outils…), avec leur temps, leur planning et leurs projets.</div></div>${who}</div>
+    <div class="panel"><p>L'extension n'est pas activée pour toi dans cet espace.${who ? " Choisis un collaborateur ci-dessus pour consulter ses demandes." : ""}</p><div class="row"><button class="btn primary" data-act="rd-on">Activer l'extension</button><a class="btn" href="#reglages">Réglages</a></div></div>`;
+  const all = rdList(), F = S.rdF, td = today();
+  const open = all.filter(d => d.statut !== "Terminé"), q = norm(F.q).split(/\s+/).filter(Boolean);
+  let list = all.filter(d => (F.st === "open" ? d.statut !== "Terminé" : F.st === "all" ? true : d.statut === F.st) && (!F.sol || d.sol === F.sol) && (!F.qui || d.qui === F.qui) && (!F.proj || (d.projets || []).includes(F.proj)));
+  if (q.length) list = list.filter(d => { const h = norm([d.sol, d.ver, d.dem, d.qui, (d.projets || []).join(" "), d.contr, d.fich].join(" ")); return q.every(w => h.includes(w)); });
+  const pr = d => RD_PRIO.indexOf(d.prio) < 0 ? 9 : RD_PRIO.indexOf(d.prio);
+  list.sort((a, b) => pr(a) - pr(b) || String(a.pour || "9").localeCompare(String(b.pour || "9")) || (a.order ?? 1e9) - (b.order ?? 1e9));
+  const sols = [...new Set(all.map(d => d.sol).filter(Boolean))].sort(), quis = [...new Set(all.map(d => d.qui).filter(Boolean))].sort(), projs = [...new Set(all.flatMap(d => d.projets || []))].sort();
+  const hOpen = open.reduce((s, d) => s + (Number(d.est) || 0), 0), unpl = open.filter(d => !d.sem).reduce((s, d) => s + (Number(d.est) || 0), 0);
+  const late = open.filter(d => validYmd(d.pour) && d.pour < td), done30 = all.filter(d => d.statut === "Terminé" && validYmd(d.fait) && diffDays(td, d.fait) <= 30);
+  const reel30 = done30.reduce((s, d) => s + (Number(d.reel) || 0), 0), est30 = done30.reduce((s, d) => s + (Number(d.est) || 0), 0);
+  const W = rdWeeks(all, cfg), cur = weekKey(td);
+  const seg = (k, v, l, n) => `<button class="seg" data-act="rd-f" data-k="${k}" data-v="${esc(v)}" aria-pressed="${(F[k] || "") === v}">${esc(l)}${n != null ? ` <span class="c">${n}</span>` : ""}</button>`;
+  const rows = list.map(d => { const t = d.task && S.tasks.get(d.task), lateP = d.statut !== "Terminé" && validYmd(d.pour) && d.pour < td;
+    return `<div class="rd-r ${d.statut === "Terminé" ? "done" : ""}" data-rid="${esc(d.id)}">
+      <button class="rd-main" data-act="rd-edit"><span class="rd-pr p${pr(d)}">${pr(d) < 9 ? pr(d) + 1 : "–"}</span><span class="rd-t"><b>${esc(d.dem || "Sans titre")}</b><small>${esc([d.sol, d.ver].filter(Boolean).join(" "))}${d.qui ? " · " + esc(d.qui) : ""}${(d.projets || []).length ? " · " + d.projets.map(esc).join(", ") : ""}</small></span></button>
+      <span class="rd-pour ${lateP ? "late" : ""}">${validYmd(d.pour) ? (lateP ? "⚠ " : "") + fmt(d.pour) : ""}</span>
+      <span class="rd-h"><b>${d.est !== "" && d.est != null ? hfmt(Number(d.est)) + " h" : "—"}</b><small>${d.reel ? "réel " + hfmt(Number(d.reel)) + " h" : ""}</small></span>
+      ${ro ? `<span class="rd-sem">${esc(d.sem || "")}</span><span class="pill st" style="--sc:var(${rdStCol[d.statut] || "--muted"})">${esc(d.statut || "")}</span>` : `<select class="rd-sem" data-rd="sem" aria-label="Semaine planifiée"><option value="">—</option>${[...new Set([...W.map(w => w.k), d.sem].filter(Boolean))].sort().map(k => `<option ${d.sem === k ? "selected" : ""}>${k}</option>`).join("")}</select>
+      <select class="rd-st" data-rd="statut" style="--sc:var(${rdStCol[d.statut] || "--muted"})" aria-label="Statut">${RD_ST.map(s => `<option ${d.statut === s ? "selected" : ""}>${s}</option>`).join("")}</select>`}
+      <span class="rd-tk">${t ? `<button class="lnk" data-act="rd-task" title="Ouvrir la tâche liée">tâche ›</button>` : ""}</span></div>`; }).join("");
+  return `<div class="view-head"><div><div class="eyebrow">Demandes internes${other ? " · " + esc(T.nameOf(S.rdWho)) + " (lecture seule)" : ""}</div><h1>Demandes ${nom}</h1><div class="sub">${open.length} ouverte${open.length > 1 ? "s" : ""} · ${hfmt(hOpen)} h estimées${unpl ? ` dont ${hfmt(unpl)} h sans semaine` : ""}</div></div>
+      <div class="pnav">${who}${ro ? "" : `<button class="btn primary" data-act="rd-new">${I.plus} Demande</button><button class="btn" data-act="rd-import">Importer l'Excel…</button><input type="file" id="rd-file" accept=".xlsx,.xlsm,.xls" hidden>`}<button class="btn" data-act="rd-export">Exporter l'Excel</button></div></div>
+    <div class="kpi-row dec-kpis rd-k">
+      <div class="kc"><span class="kc-l">Ouvertes</span><span class="kc-v">${open.length}</span><span class="kc-n mut">${hfmt(hOpen)} h estimées</span></div>
+      <div class="kc"><span class="kc-l">Sans semaine</span><span class="kc-v ${unpl ? "warn" : ""}">${hfmt(unpl)} h</span><span class="kc-n mut">à planifier</span></div>
+      <div class="kc"><span class="kc-l">En retard</span><span class="kc-v ${late.length ? "over" : "ok"}">${late.length}</span><span class="kc-n mut">« pour le » dépassé</span></div>
+      <div class="kc"><span class="kc-l">Terminées (30 j)</span><span class="kc-v ok">${done30.length}</span><span class="kc-n mut">${est30 ? `réel ${hfmt(reel30)} h / estimé ${hfmt(est30)} h` : ""}</span></div>
+      <div class="kc"><span class="kc-l">Cette semaine</span><span class="kc-v">${hfmt((W.find(w => w.k === cur) || {}).plan || 0)} h</span><span class="kc-n mut">${(W.find(w => w.k === cur) || {}).dispo !== "" ? `sur ${hfmt((W.find(w => w.k === cur) || {}).dispo || 0)} h dispo` : "dispo non renseignée"}</span></div></div>
+    <section class="panel rd-wk"><div class="bd-h"><h2>Charge par semaine</h2><span class="sub">heures ${nom} disponibles, planifiées et reste ; « dispo » et commentaire sont à toi</span></div>
+      <div class="rd-wks">${W.map(w => { const reste = w.dispo === "" ? null : w.dispo - w.plan;
+        return `<div class="rd-w ${w.k === cur ? "cur" : ""} ${reste !== null && reste < 0 ? "over" : ""}" data-wk="${w.k}"><b>${w.k.slice(5)}</b><small>${fmt(w.mon)}</small>
+          <span class="rd-wb"><i style="height:${Math.min(100, w.plan / Math.max(1, w.dispo || w.plan || 1) * 100)}%"></i></span>
+          <span class="rd-wv">${hfmt(w.plan)} h${w.dispo !== "" ? ` / ${ro ? hfmt(w.dispo) : ""}` : ""}${ro ? "" : `<input type="text" inputmode="decimal" data-rdw="dispo" value="${w.dispo === "" ? "" : hfmt(w.dispo)}" placeholder="dispo" aria-label="Heures disponibles semaine ${w.k}">`}</span>
+          ${reste !== null ? `<em class="${reste < 0 ? "late" : ""}">${reste < 0 ? "−" : "reste "}${hfmt(Math.abs(reste))} h</em>` : ""}
+          ${ro ? (w.com ? `<small class="rd-c">${esc(w.com)}</small>` : "") : `<input type="text" class="rd-c" data-rdw="com" value="${esc(w.com)}" placeholder="commentaire" aria-label="Commentaire semaine ${w.k}">`}</div>`; }).join("")}</div></section>
+    <div class="toolbar"><label class="search">${I.search}<input type="search" data-rdq value="${esc(F.q)}" placeholder="Rechercher une demande, une solution, un demandeur…" aria-label="Rechercher"></label></div>
+    <div class="filters rd-f">
+      <div class="seg-block"><span class="seg-label">Statut</span>${seg("st", "open", "Ouvertes", open.length)}${RD_ST.map(s => seg("st", s, s, all.filter(d => d.statut === s).length)).join("")}${seg("st", "all", "Toutes", all.length)}</div>
+      ${sols.length > 1 ? `<div class="seg-block"><span class="seg-label">Solution</span>${seg("sol", "", "Toutes")}${sols.map(s => seg("sol", s, s)).join("")}</div>` : ""}
+      ${quis.length > 1 ? `<div class="seg-block"><span class="seg-label">Demandeur</span>${seg("qui", "", "Tous")}${quis.map(s => seg("qui", s, s)).join("")}</div>` : ""}
+      ${projs.length > 1 ? `<div class="seg-block"><span class="seg-label">Projet</span>${seg("proj", "", "Tous")}${projs.map(s => seg("proj", s, s)).join("")}</div>` : ""}</div>
+    <div class="rd-list">${rows || `<div class="empty"><h2>${all.length ? "Aucune demande avec ces filtres" : "Aucune demande pour l'instant"}</h2><p>${all.length ? "" : "Importe le fichier Excel de suivi des demandes, ou ajoute une demande."}</p></div>`}</div>`;
+}
+/* fiche d'une demande */
+function rdSheet(d){
+  const cfg = rdCfg(), isNew = !d, x = d || {id:"", sol:"", ver:"", dem:"", prio:RD_PRIO[1], pour:"", fait:"", est:"", reel:"", contr:"", fich:"", qui:"", projets:[], sem:"", statut:"À faire"};
+  const opts = (arr, v) => [...new Set([...arr, v].filter(Boolean))].map(o => `<option ${o === v ? "selected" : ""}>${esc(o)}</option>`).join("");
+  const projAll = [...new Set([...(cfg.lists.projets || []), ...allProjets(), ...(x.projets || [])])];
+  const t = x.task && S.tasks.get(x.task);
+  syncSheet(isNew ? "Nouvelle demande" : "Demande", `<div class="rd-form">
+    <h4 class="rd-h4 blue">Demandeur</h4>
+    <div class="ao-form f2">
+      <label class="field wide"><span class="lbl">Demande</span><textarea id="rd-dem" rows="2">${esc(x.dem)}</textarea></label>
+      <label class="field"><span class="lbl">Solution</span><input type="text" id="rd-sol" list="rd-sols" value="${esc(x.sol)}"><datalist id="rd-sols">${opts([...new Set([...(cfg.lists.solutions || []), ...[...S.rd.values()].map(r => r.sol)])], "")}</datalist></label>
+      <label class="field"><span class="lbl">Version</span><input type="text" id="rd-ver" value="${esc(x.ver)}"></label>
+      <label class="field"><span class="lbl">Priorité</span><select id="rd-prio">${RD_PRIO.map(p => `<option ${x.prio === p ? "selected" : ""}>${p}</option>`).join("")}</select></label>
+      <label class="field"><span class="lbl">Pour le</span><input type="date" id="rd-pour" value="${esc(x.pour || "")}"></label>
+      <label class="field"><span class="lbl">Qui fait la demande</span><input type="text" id="rd-qui" list="rd-quis" value="${esc(x.qui)}"><datalist id="rd-quis">${opts(cfg.lists.qui || [], "")}</datalist></label>
+      <div class="field wide"><span class="lbl">Pour quel(s) projet(s)</span><div class="chipset">${projAll.map(p => `<label class="chip-b sm tm-ck"><input type="checkbox" name="rd-proj" value="${esc(p)}" ${(x.projets || []).includes(p) ? "checked" : ""}>${esc(p)}</label>`).join("")}</div></div>
+      <label class="field"><span class="lbl">Contrainte</span><input type="text" id="rd-contr" value="${esc(x.contr)}"></label>
+      <label class="field"><span class="lbl">Fichiers exemples pour les tests</span><input type="text" id="rd-fich" value="${esc(x.fich)}"></label>
+    </div>
+    <h4 class="rd-h4 yel">Toi</h4>
+    <div class="ao-form f3">
+      <label class="field"><span class="lbl">Statut</span><select id="rd-statut">${RD_ST.map(s => `<option ${x.statut === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>
+      <label class="field"><span class="lbl">Temps estimé (h)</span><input type="text" id="rd-est" inputmode="decimal" value="${x.est === "" || x.est == null ? "" : hfmt(Number(x.est))}"></label>
+      <label class="field"><span class="lbl">Semaine planifiée</span><input type="text" id="rd-sem" value="${esc(x.sem || "")}" placeholder="${weekKey(today())}"></label>
+      <label class="field"><span class="lbl">Temps réel (h)</span><input type="text" id="rd-reel" inputmode="decimal" value="${x.reel === "" || x.reel == null ? "" : hfmt(Number(x.reel))}" ${t && blocsOf(t).length ? 'readonly title="Calculé depuis les créneaux de la tâche"' : ""}></label>
+      <label class="field"><span class="lbl">Fait le</span><input type="date" id="rd-fait" value="${esc(x.fait || "")}"></label>
+    </div>
+    <p class="sub">${t ? `Liée à la tâche <button class="lnk" data-act="rd-task2" data-tid="${esc(t.id)}">« ${esc(t.tache)} »</button> : son statut, sa semaine, son temps estimé et ses créneaux (temps réel) restent synchronisés.` : "Une tâche sera créée dans le projet « " + esc(cfg.projet || "sans projet") + " » pour la planifier et décompter ton temps."}</p></div>`,
+    `${isNew ? "" : `<button class="btn danger" data-act="rd-del" data-rid="${esc(x.id)}">Supprimer</button>`}<span class="spacer"></span><button class="btn" data-act="ao-ov-close">Annuler</button><button class="btn primary" data-act="rd-ok" data-rid="${esc(x.id)}">${isNew ? "Ajouter" : "Enregistrer"}</button>`, "rd-ov");
+}
+function rdReadSheet(){
+  const v = id => (document.getElementById(id) || {}).value || "";
+  const est = rdNum(v("rd-est")), reel = rdNum(v("rd-reel")), sem = v("rd-sem").trim().toUpperCase().replace(/^(\d{4})-?S?(\d{1,2})$/, (m, y, w) => `${y}-S${z2(w)}`);
+  return {dem:v("rd-dem").trim(), sol:v("rd-sol").trim(), ver:v("rd-ver").trim(), prio:v("rd-prio"), pour:v("rd-pour"), qui:v("rd-qui").trim(), projets:[...document.querySelectorAll('input[name="rd-proj"]:checked')].map(i => i.value), contr:v("rd-contr").trim(), fich:v("rd-fich").trim(),
+    statut:v("rd-statut"), est, sem:/^\d{4}-S\d{2}$/.test(sem) ? sem : "", reel, fait:v("rd-fait")};
+}
+
+/* ---------- import de l'Excel de suivi ---------- */
+const RD_HEAD = {solution:"sol", version:"ver", demande:"dem", priorite:"prio", "pour le":"pour", "fait le":"fait", "temps estime (h)":"est", "temps estime":"est", "temps reel (h)":"reel", "temps reel":"reel", contrainte:"contr", "fichiers exemples necessaires pour les tests":"fich", "fichiers exemples":"fich", "qui fait la demande":"qui", demandeur:"qui", "pour quel projet":"projets", projet:"projets", "semaine planifiee":"sem", statut:"statut", "ref. app":"id", "ref app":"id"};
+async function rdParse(file){
+  const X = await loadXLSX(), wb = X.read(await file.arrayBuffer(), {type:"array"});
+  const rowsOf = n => X.utils.sheet_to_json(wb.Sheets[n], {header:1, raw:true, defval:""});
+  let dem = null, hi = -1, sheet = "";
+  for (const n of wb.SheetNames) { const r = rowsOf(n), k = r.findIndex(row => row.some(c => norm(c) === "demande") && row.some(c => norm(c) === "statut")); if (k >= 0) { dem = r; hi = k; sheet = n; break; } }
+  if (!dem) return {err:"Aucune feuille avec les colonnes « Demande » et « Statut »."};
+  const head = dem[hi].map(c => RD_HEAD[norm(c)] || null), list = [];
+  dem.slice(hi + 1).forEach((row, i) => {
+    const o = {}; head.forEach((h, j) => { if (h && o[h] === undefined) o[h] = row[j]; });
+    if (!String(o.dem ?? "").trim()) return;
+    const st = RD_ST.find(s => norm(s) === norm(o.statut)) || (String(o.statut ?? "").trim() ? String(o.statut).trim() : "À faire");
+    const sem = String(o.sem ?? "").trim().toUpperCase();
+    list.push({id:String(o.id ?? "").trim(), sol:String(o.sol ?? "").trim(), ver:String(o.ver ?? "").trim(), dem:String(o.dem).replace(/\s+/g, " ").trim(), prio:RD_PRIO.find(p => norm(p) === norm(o.prio)) || String(o.prio ?? "").trim(),
+      pour:toYmd(o.pour, X), fait:toYmd(o.fait, X), est:rdNum(o.est), reel:rdNum(o.reel), contr:String(o.contr ?? "").trim(), fich:String(o.fich ?? "").trim(), qui:String(o.qui ?? "").trim(), projets:rdSplitProj(o.projets), sem:/^\d{4}-S\d{1,2}$/.test(sem) ? sem.replace(/S(\d)$/, "S0$1") : "", statut:st, order:i});
+  });
+  /* planning (heures dispo par semaine) et listes */
+  const weeks = {}, lists = {qui:[], projets:[], solutions:[...new Set(list.map(x => x.sol).filter(Boolean))]};
+  for (const n of wb.SheetNames) {
+    const r = rowsOf(n), k = r.findIndex(row => row.some(c => norm(c) === "semaine") && row.some(c => /dispo/.test(norm(c))));
+    if (k >= 0) { const H = r[k].map(c => norm(c)), iS = H.indexOf("semaine"), iD = H.findIndex(c => /dispo/.test(c)), iC = H.findIndex(c => /commentaire/.test(c));
+      for (const row of r.slice(k + 1)) { const s = String(row[iS] ?? "").trim().toUpperCase(); if (!/^\d{4}-S\d{2}$/.test(s)) continue; const dv = rdNum(row[iD]), cm = iC >= 0 ? String(row[iC] ?? "").trim() : ""; if (dv !== "" || cm) weeks[s] = {dispo:dv, com:cm}; } }
+    const l = r.findIndex(row => row.some(c => norm(c) === "qui fait la demande") && row.some(c => norm(c) === "pour quel projet") && !row.some(c => norm(c) === "demande"));
+    if (l >= 0) { const H = r[l].map(c => norm(c)), iQ = H.indexOf("qui fait la demande"), iP = H.indexOf("pour quel projet");
+      for (const row of r.slice(l + 1)) { const qv = String(row[iQ] ?? "").trim(), pv = String(row[iP] ?? "").trim(); if (qv) lists.qui.push(qv); if (pv) lists.projets.push(pv); } }
+  }
+  return {list, weeks, lists, sheet};
+}
+const rdSame = (a, b) => JSON.stringify(a ?? "") === JSON.stringify(b ?? "");
+function rdMerge(P){
+  const app = [...S.rd.values()], byId = new Map(app.map(d => [d.id, d])), byKey = new Map(), seen = new Set(), out = [];
+  for (const d of app) { const k = rdKey(d); if (!byKey.has(k)) byKey.set(k, d); }
+  for (const x of P.list) {
+    let d = x.id && byId.get(x.id); if (!d) { const c = byKey.get(rdKey(x)); if (c && !seen.has(c.id)) d = c; }
+    if (!d) { out.push({kind:"new", x}); continue; }
+    seen.add(d.id);
+    const patch = {}, diffs = [];
+    for (const k of RD_BLUE) if (!rdSame(d[k], x[k]) && !(k === "projets" && rdSame([...(d[k] || [])].sort(), [...(x[k] || [])].sort()))) { patch[k] = x[k]; diffs.push([k, d[k], x[k], "excel"]); }
+    for (const k of RD_YEL) { const empty = d[k] === "" || d[k] == null; if (empty && !(x[k] === "" || x[k] == null)) { patch[k] = x[k]; diffs.push([k, d[k], x[k], "excel"]); } else if (!empty && !rdSame(d[k], x[k])) diffs.push([k, x[k], d[k], "app"]); }
+    out.push({kind:Object.keys(patch).length ? "upd" : diffs.length ? "keep" : "same", d, x, patch, diffs});
+  }
+  const only = app.filter(d => !seen.has(d.id));
+  return {items:out, only};
+}
+async function rdImport(file){
+  let P; try { P = await rdParse(file); } catch (e) { console.warn(e); toast("Ce fichier n'a pas pu être lu."); return; }
+  if (P.err) { toast(P.err); return; }
+  S.rdImp = {P, M:rdMerge(P)}; rdImpSheet();
+}
+function rdImpSheet(){
+  const {P, M} = S.rdImp, n = k => M.items.filter(i => i.kind === k).length, fv = (k, v) => k === "projets" ? (v || []).join(", ") : (k === "pour" || k === "fait") && validYmd(v) ? fmt(v, true) : String(v ?? "");
+  const lab = {new:"Nouvelle", upd:"Mise à jour", keep:"Tes valeurs gardées", same:"Identique"};
+  const rows = M.items.filter(i => i.kind !== "same").map((i, j) => `<tr class="${{new:"st-add", upd:"st-repl", keep:"st-conf"}[i.kind]}"><td><button class="lnk imp-x" data-act="sy-impx" aria-expanded="false">▸ ${esc((i.x.dem || "").slice(0, 70))}${(i.x.dem || "").length > 70 ? "…" : ""}</button></td><td>${esc(i.x.sol)} ${esc(i.x.ver)}</td><td><span class="imp-st">${lab[i.kind]}</span></td></tr>
+    <tr class="imp-det" hidden><td colspan="3">${i.kind === "new" ? `<p class="sub" style="margin:0">${esc(i.x.qui || "")} · ${esc((i.x.projets || []).join(", "))} · ${esc(i.x.statut)}${i.x.est !== "" ? " · " + hfmt(i.x.est) + " h" : ""}${i.x.sem ? " · " + i.x.sem : ""}</p>` : `<ul class="rd-diff">${i.diffs.map(([k, a, b, w]) => `<li><b>${RD_LAB[k]}</b> ${w === "excel" ? `<span class="mut">${esc(fv(k, a)) || "vide"}</span> → <span>${esc(fv(k, b)) || "vide"}</span> <small>(Excel)</small>` : `l'Excel dit <span class="mut">${esc(fv(k, a)) || "vide"}</span>, tu gardes <span>${esc(fv(k, b))}</span> <small>(app)</small>`}</li>`).join("")}</ul>`}</td></tr>`).join("");
+  const wk = Object.keys(P.weeks).length;
+  syncSheet("Aperçu de l'import des demandes", `<p class="sub" style="margin-top:0">Feuille « ${esc(P.sheet)} » : ${P.list.length} demandes. Colonnes <b class="rd-b">bleues</b> (demandeur) : l'Excel fait foi. Colonnes <b class="rd-y">jaunes</b> (toi : fait le, temps, semaine, statut) : tes valeurs dans l'app sont gardées, l'Excel ne remplit que les cases vides. Rien n'est enregistré avant « Valider ».</p>
+    <div class="imp-k"><span class="st-add"><b>${n("new")}</b> nouvelle${n("new") > 1 ? "s" : ""}</span><span class="st-repl"><b>${n("upd")}</b> mise${n("upd") > 1 ? "s" : ""} à jour</span><span class="st-conf"><b>${n("keep")}</b> où tes valeurs sont gardées</span><span class="st-same"><b>${n("same")}</b> identique${n("same") > 1 ? "s" : ""}</span>${M.only.length ? `<span><b>${M.only.length}</b> seulement dans l'app (gardée${M.only.length > 1 ? "s" : ""})</span>` : ""}</div>
+    ${rows ? `<div class="tbl-wrap imp-wrap"><table class="tbl imp-t rd-it"><tbody>${rows}</tbody></table></div>` : `<p>Tout est déjà à jour.</p>`}
+    <label class="toggle imp-ag"><input type="checkbox" id="rd-imp-tasks" checked> <span><b>Créer une tâche pour chaque demande non terminée</b> qui n'en a pas encore, dans le projet « ${esc(rdCfg().projet || "sans projet")} » (modifiable dans Réglages ▸ Extensions).</span></label>
+    ${wk ? `<p class="sub">Planning : ${wk} semaine${wk > 1 ? "s" : ""} avec des heures disponibles ou un commentaire (tes valeurs déjà saisies sont gardées).</p>` : ""}`,
+    `<span class="spacer"></span><button class="btn" data-act="ao-ov-close">Annuler</button><button class="btn primary" data-act="rd-impok">Valider l'import</button>`, "imp-ov");
+}
+async function rdImpApply(){
+  const {P, M} = S.rdImp || {}; if (!M) return;
+  const mkTasks = !!(document.getElementById("rd-imp-tasks") || {}).checked; document.querySelector(".sy-ov")?.remove();
+  toast("Import en cours…");
+  let nN = 0, nU = 0, nT = 0;
+  for (const i of M.items) {
+    if (i.kind === "new") { const id = i.x.id || ("rd" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6)); const d = {...i.x, id, task:"", created:nowIso(), updated:nowIso()}; delete d.id; await S.db.doc("rd/" + id).set(d); S.rd.set(id, {...d, id}); nN++; }
+    else if (i.kind === "upd") { await S.db.doc("rd/" + i.d.id).update({...i.patch, order:i.x.order, updated:nowIso()}); S.rd.set(i.d.id, {...i.d, ...i.patch}); nU++;
+      const t = i.d.task && S.tasks.get(i.d.task); if (t) { const b = rdTaskBody({...i.d, ...i.patch}), up = {}; for (const k of ["tache", "priorite", "echeance", "theme", "commentaires"]) if (String(t[k] ?? "") !== String(b[k] ?? "")) up[k] = b[k]; if (Object.keys(up).length) await S.db.doc("tasks/" + t.id).update({...up, updated:nowIso()}); } }
+  }
+  if (mkTasks) for (const d of [...S.rd.values()]) if (!d.task && d.statut !== "Terminé") { try { await rdCreateTask(d); nT++; } catch (e) { fail(e); } }
+  const c = rdCfg(), weeks = {...c.weeks};
+  for (const [k, w] of Object.entries(P.weeks)) { const cur = weeks[k] || {}; weeks[k] = {dispo:cur.dispo === "" || cur.dispo == null ? w.dispo : cur.dispo, com:cur.com || w.com || ""}; }
+  const lists = {qui:[...new Set([...(c.lists.qui || []), ...P.lists.qui])], projets:[...new Set([...(c.lists.projets || []), ...P.lists.projets])], solutions:[...new Set([...(c.lists.solutions || []), ...P.lists.solutions])]};
+  await rdSaveCfg({weeks, lists});
+  S.rdBusy = Date.now();   S.rdImp = null; toast(`Import : ${nN} nouvelle${nN > 1 ? "s" : ""}, ${nU} mise${nU > 1 ? "s" : ""} à jour${nT ? `, ${nT} tâche${nT > 1 ? "s" : ""} créée${nT > 1 ? "s" : ""}` : ""}`); render(true);
+}
+/* ---------- export au même format que le fichier de suivi ---------- */
+async function rdExport(){
+  const cfg = rdCfg(), list = rdList().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || String(a.created || "").localeCompare(String(b.created || "")));
+  const wb = await xlBook(), NAVY = "FF1F3864", BLUE = "FFDDEBF7", BLUEH = "FF9BC2E6", YEL = "FFFFF2CC", YELH = "FFFFD966", GREY = "FFE7E6E6";
+  const fill = c => ({type:"pattern", pattern:"solid", fgColor:{argb:c}}), thin = {style:"thin", color:{argb:"FFBFBFBF"}}, box = {top:thin, left:thin, bottom:thin, right:thin};
+  const ws = wb.addWorksheet("Demandes", {views:[{state:"frozen", xSplit:3, ySplit:4}]});
+  const W = [18, 12, 45, 14, 12, 12, 12, 12, 32, 25, 18, 20, 13, 12, 14];
+  ws.columns = W.map(w => ({width:w}));
+  ws.getCell("A1").value = "Demandes de développement " + xlS(cfg.nom); ws.getCell("A1").font = {bold:true, size:16, color:{argb:NAVY}};
+  ws.getCell("A2").value = "Aujourd'hui :"; ws.getCell("A2").font = {bold:true}; ws.getCell("B2").value = {formula:"TODAY()", result:new Date()}; ws.getCell("B2").numFmt = "dd/mm/yyyy";
+  ws.getCell("E2").value = "➜ BLEU = à remplir par le demandeur · JAUNE = réservé au dev · GRIS = calcul automatique, ne pas modifier. La « Semaine planifiée » alimente l'onglet Planning R&D."; ws.getCell("E2").font = {italic:true, color:{argb:"FF595959"}};
+  const grp = ["DEMANDEUR", "DEMANDEUR", "DEMANDEUR", "DEMANDEUR", "DEMANDEUR", "DEV", "DEV", "DEV", "DEMANDEUR", "DEMANDEUR", "DEMANDEUR", "DEMANDEUR", "DEV", "DEV", "APP"];
+  const hd = ["Solution", "Version", "Demande", "Priorité", "Pour le", "Fait le", "Temps estimé (h)", "Temps réel (h)", "Contrainte", "Fichiers exemples nécessaires pour les tests", "Qui fait la demande", "Pour quel projet", "Semaine planifiée", "Statut", "Réf. app"];
+  grp.forEach((g, i) => { const c = ws.getCell(3, i + 1); c.value = g; c.font = {bold:true, size:9}; c.alignment = {horizontal:"center"}; c.fill = fill(g === "DEV" ? YELH : g === "APP" ? GREY : BLUEH); c.border = box; });
+  hd.forEach((h, i) => { const c = ws.getCell(4, i + 1); c.value = h; c.font = {bold:true, color:{argb:"FFFFFFFF"}}; c.fill = fill(NAVY); c.alignment = {vertical:"middle", wrapText:true}; c.border = box; });
+  ws.getRow(4).height = 30;
+  const N = Math.max(203, list.length + 30), yel = new Set([6, 7, 8, 13, 14]);
+  list.forEach((d, i) => {
+    const r = 5 + i, vals = [d.sol, /^\d+$/.test(String(d.ver)) ? Number(d.ver) : d.ver, d.dem, d.prio, xlD(d.pour), xlD(d.fait), d.est === "" ? null : Number(d.est), d.reel === "" || d.reel == null ? null : Number(d.reel), d.contr, d.fich, d.qui, (d.projets || []).join(", "), d.sem, d.statut, d.id];
+    vals.forEach((v, j) => { const c = ws.getCell(r, j + 1); c.value = typeof v === "string" ? xlS(v) || null : v === "" ? null : v; });
+  });
+  for (let r = 5; r <= N; r++) for (let j = 1; j <= 15; j++) { const c = ws.getCell(r, j); c.fill = fill(j === 15 ? GREY : yel.has(j) ? YEL : BLUE); c.border = box; c.alignment = {vertical:"top", wrapText:j === 3 || j === 9 || j === 10}; if (j === 5 || j === 6) c.numFmt = "dd/mm/yyyy"; if (j === 7 || j === 8) c.numFmt = "0.0#"; }
+  ws.getColumn(15).hidden = true;
+  const dv = (col, f) => { for (let r = 5; r <= N; r++) ws.getCell(`${col}${r}`).dataValidation = {type:"list", allowBlank:true, formulae:[f]}; };
+  dv("A", "Liste_Solutions"); dv("D", "Liste_Priorites"); dv("K", "Liste_Demandeurs"); dv("L", "Liste_Projets"); dv("M", "Semaines"); dv("N", "Liste_Statuts");
+  ws.addConditionalFormatting({ref:`A5:N${N}`, rules:[{type:"expression", formulae:['$N5="Terminé"'], style:{font:{color:{argb:"FF808080"}}, fill:{type:"pattern", pattern:"solid", bgColor:{argb:"FFEDEDED"}}}}]});
+  ws.addConditionalFormatting({ref:`E5:E${N}`, rules:[{type:"expression", formulae:['AND($E5<>"",$F5="",$E5<TODAY())'], style:{font:{bold:true, color:{argb:"FFC00000"}}}}]});
+  /* planning */
+  const wp = wb.addWorksheet("Planning R&D", {views:[{state:"frozen", ySplit:4}]});
+  wp.columns = [12, 12, 12, 14, 15, 11, 60, 4, 50].map(w => ({width:w}));
+  wp.getCell("A1").value = `Mes heures ${xlS(cfg.nom)} par semaine`; wp.getCell("A1").font = {bold:true, size:16, color:{argb:NAVY}};
+  wp.getCell("A2").value = "Aujourd'hui :"; wp.getCell("A2").font = {bold:true}; wp.getCell("B2").value = {formula:"TODAY()", result:new Date()}; wp.getCell("B2").numFmt = "dd/mm/yyyy";
+  wp.getCell("D2").value = "➜ JAUNE = je remplis (dev) · GRIS = calcul automatique, ne pas modifier · Semaine en cours en violet · Reste en rouge = semaine surchargée."; wp.getCell("D2").font = {italic:true, color:{argb:"FF595959"}};
+  const ph = ["Semaine", "Du", "Au", `Heures ${cfg.nom} dispo`, "Heures planifiées", "Reste (h)", "Commentaire"];
+  ["AUTO", "AUTO", "AUTO", "DEV", "AUTO", "AUTO", "DEV"].forEach((g, i) => { const c = wp.getCell(3, i + 1); c.value = g; c.font = {bold:true, size:9}; c.alignment = {horizontal:"center"}; c.fill = fill(g === "DEV" ? YELH : GREY); c.border = box; });
+  ph.forEach((h, i) => { const c = wp.getCell(4, i + 1); c.value = xlS(h); c.font = {bold:true, color:{argb:"FFFFFFFF"}}; c.fill = fill(NAVY); c.border = box; });
+  const allW = [...Object.keys(cfg.weeks), ...list.map(d => d.sem).filter(Boolean), weekKey(today())].sort(), w0 = weekMon(allW[0]) || mondayOf(today()), NW = 61;
+  for (let i = 0; i < NW; i++) {
+    const r = 5 + i, mon = addDays(w0, 7 * i), k = weekKey(mon), w = cfg.weeks[k] || {};
+    wp.getCell(r, 1).value = k; wp.getCell(r, 2).value = xlD(mon); wp.getCell(r, 2).numFmt = "dd/mm/yyyy";
+    wp.getCell(r, 3).value = {formula:`B${r}+4`, result:xlD(addDays(mon, 4))}; wp.getCell(r, 3).numFmt = "dd/mm/yyyy";
+    wp.getCell(r, 4).value = w.dispo === "" || w.dispo == null ? null : Number(w.dispo);
+    const plan = list.filter(d => d.sem === k).reduce((s, d) => s + (Number(d.est) || 0), 0);
+    wp.getCell(r, 5).value = {formula:`SUMIFS(Demandes!$G$5:$G$${N},Demandes!$M$5:$M$${N},A${r})`, result:plan};
+    wp.getCell(r, 6).value = {formula:`IF(D${r}="","",D${r}-E${r})`, result:w.dispo === "" || w.dispo == null ? "" : Number(w.dispo) - plan};
+    wp.getCell(r, 7).value = w.com ? xlS(w.com) : null;
+    for (let j = 1; j <= 7; j++) { const c = wp.getCell(r, j); c.fill = fill(j === 4 || j === 7 ? YEL : GREY); c.border = box; }
+  }
+  const last = 4 + NW;
+  wp.getCell("I2").value = "Heures estimées non planifiées (sans semaine, non terminées) :"; wp.getCell("I3").value = {formula:`SUMIFS(Demandes!$G$5:$G$${N},Demandes!$M$5:$M$${N},"",Demandes!$N$5:$N$${N},"<>Terminé")`, result:list.filter(d => !d.sem && d.statut !== "Terminé").reduce((s, d) => s + (Number(d.est) || 0), 0)};
+  wp.getCell("I4").value = "Total heures planifiées :"; wp.getCell("I5").value = {formula:`SUM(E5:E${last})`, result:list.filter(d => d.sem).reduce((s, d) => s + (Number(d.est) || 0), 0)};
+  wp.addConditionalFormatting({ref:`A5:G${last}`, rules:[{type:"expression", formulae:["AND(TODAY()>=$B5,TODAY()<=$B5+6)"], style:{font:{bold:true, color:{argb:"FF7030A0"}}}}]});
+  wp.addConditionalFormatting({ref:`F5:F${last}`, rules:[{type:"cellIs", operator:"lessThan", formulae:["0"], style:{font:{bold:true, color:{argb:"FFC00000"}}}}]});
+  /* listes */
+  const wl = wb.addWorksheet("Listes"); wl.columns = [22, 22, 14, 14, 24].map(w => ({width:w}));
+  const L = [["Qui fait la demande", [...new Set([...(cfg.lists.qui || []), ...list.map(d => d.qui)].filter(Boolean))]], ["Pour quel projet", [...new Set([...(cfg.lists.projets || []), ...list.flatMap(d => d.projets || [])].filter(Boolean))]], ["Statut", RD_ST], ["Priorité", RD_PRIO], ["Solution", [...new Set([...(cfg.lists.solutions || []), ...list.map(d => d.sol)].filter(Boolean))]]];
+  L.forEach(([h, arr], j) => { const c = wl.getCell(1, j + 1); c.value = h; c.font = {bold:true, color:{argb:"FFFFFFFF"}}; c.fill = fill(NAVY); arr.forEach((v, i) => { const x = wl.getCell(2 + i, j + 1); x.value = xlS(v); x.fill = fill(YEL); }); });
+  const col = "ABCDE";
+  [["Liste_Demandeurs", 0], ["Liste_Projets", 1], ["Liste_Statuts", 2], ["Liste_Priorites", 3], ["Liste_Solutions", 4]].forEach(([nm, j]) => wb.definedNames.add(`Listes!$${col[j]}$2:$${col[j]}$${Math.max(2, 1 + L[j][1].length)}`, nm));
+  wb.definedNames.add(`'Planning R&D'!$A$5:$A$${last}`, "Semaines");
+  await xlSave(wb, `Suivi_Demandes_${(cfg.nom || "RetD").replace(/[^A-Za-z0-9]+/g, "")}_${today()}.xlsx`);
+}
+
+/* ---------- réglages : extensions ---------- */
+function rdSettingsPanel(){
+  const c = rdCfg(), ro = S.canWrite === false;
+  return `<div class="panel"><h2>Extensions</h2><p>Des modules à activer selon ton rôle. Ils ne concernent que toi${typeof TM === "function" && TM() ? " (ton chef de service et les administrateurs peuvent les consulter)" : ""}.</p>
+    <div class="ext"><label class="toggle"><input type="checkbox" id="rd-on" ${c.on ? "checked" : ""} ${ro ? "disabled" : ""}> <span><b>Demandes internes</b> : suivre les demandes que tes collègues t'adressent (R&D, support, outils…), importer et réexporter leur fichier Excel de suivi, une tâche par demande pour la planifier et décompter ton temps.</span></label>
+    ${c.on ? `<div class="ao-form f2" style="margin-top:10px"><label class="field"><span class="lbl">Nom de l'onglet</span><input type="text" id="rd-nom" value="${esc(c.nom)}" placeholder="R&D"></label>
+      <label class="field"><span class="lbl">Projet des tâches créées</span><select id="rd-proj"><option value="">Sans projet</option>${allProjets().map(p => `<option ${c.projet === p ? "selected" : ""}>${esc(p)}</option>`).join("")}</select><small class="sub">Sa référence sert au décompte des heures.</small></label></div>` : ""}</div></div>`;
+}
+
+/* ---------- actions ---------- */
+document.addEventListener("click", async ev => {
+  const a = ev.target.closest && ev.target.closest('[data-act^="rd-"]'); if (!a) return;
+  ev.preventDefault(); ev.stopPropagation();
+  const act = a.dataset.act, rid = a.dataset.rid || a.closest("[data-rid]")?.dataset.rid, d = rid && S.rd.get(rid);
+  if (act === "rd-on") { await rdSaveCfg({on:true, nom:rdCfg().nom, projet:rdCfg().projet || (allProjets().find(p => /r&d|r ?et ?d|rd/i.test(p)) || "")}); toast("Extension activée"); render(true); return; }
+  if (act === "rd-f") { S.rdF[a.dataset.k] = a.dataset.v; render(true); return; }
+  if (act === "rd-new") { rdSheet(null); return; }
+  if (act === "rd-edit") { const T = typeof TM === "function" ? TM() : null; if (T && S.rdWho && S.rdWho !== T.uid) return; if (d) rdSheet(d); return; }
+  if (act === "rd-task" || act === "rd-task2") { const tid = a.dataset.tid || (d && d.task); document.querySelector(".sy-ov")?.remove(); if (tid && S.tasks.has(tid)) openEditor(tid); return; }
+  if (act === "rd-import") { $("#rd-file").click(); return; }
+  if (act === "rd-export") { try { await rdExport(); } catch (e) { console.warn(e); toast("Export impossible pour l'instant."); } return; }
+  if (act === "rd-impok") { await rdImpApply(); return; }
+  if (act === "rd-ok") {
+    const x = rdReadSheet(); if (!x.dem) { toast("Écris la demande."); return; }
+    document.querySelector(".sy-ov")?.remove();
+    if (d) { const patch = {}; for (const k of [...RD_BLUE, ...RD_YEL]) if (!rdSame(d[k], x[k])) patch[k] = x[k]; if (Object.keys(patch).length) await rdSave(d, patch); toast("Demande enregistrée"); }
+    else { const id = "rd" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), nd = {...x, task:"", order:1e6 + Date.now() % 1e6, created:nowIso(), updated:nowIso()};
+      try { await S.db.doc("rd/" + id).set(nd); S.rd.set(id, {...nd, id}); if (nd.statut !== "Terminé") await rdCreateTask({...nd, id}); toast("Demande ajoutée"); } catch (e) { fail(e); } }
+    render(true); return;
+  }
+  if (act === "rd-del" && d) {
+    if (!a.classList.contains("armed")) { a.classList.add("armed"); a.textContent = d.task ? "Confirmer (la tâche liée est gardée)" : "Confirmer la suppression"; return; }
+    document.querySelector(".sy-ov")?.remove(); try { await S.db.doc("rd/" + d.id).delete(); S.rd.delete(d.id); toast("Demande supprimée"); } catch (e) { fail(e); } render(true); return;
+  }
+}, true);
+document.addEventListener("change", async ev => {
+  const t = ev.target; if (!t) return;
+  if (t.id === "rd-file" && t.files && t.files[0]) { ev.stopPropagation(); const f = t.files[0]; t.value = ""; await rdImport(f); return; }
+  if (t.id === "rd-on") { ev.stopPropagation(); await rdSaveCfg({on:t.checked}); toast(t.checked ? "Extension activée" : "Extension désactivée"); render(true); return; }
+  if (t.id === "rd-nom") { ev.stopPropagation(); await rdSaveCfg({nom:t.value.trim() || "R&D"}); render(true); return; }
+  if (t.id === "rd-proj") { ev.stopPropagation(); await rdSaveCfg({projet:t.value}); toast("Projet des demandes : " + (t.value || "aucun")); return; }
+  if (t.dataset && t.dataset.rdWho != null) { ev.stopPropagation(); const T = TM(); S.rdWho = t.value === T.uid ? "" : t.value; if (S.rdWho && !S.rdOther[S.rdWho]) { S.rdOther[S.rdWho] = {list:[], cfg:{}}; T.watchMember(S.rdWho, "rd", docs => { S.rdOther[S.rdWho].list = docs; schedule(); }); T.watchMemberDoc(S.rdWho, "meta/prefs", p => { S.rdOther[S.rdWho].cfg = (p && p.rd) || {}; schedule(); }); } render(true); return; }
+  const row = t.closest && t.closest(".rd-r"); const dd = row && S.rd.get(row.dataset.rid);
+  if (dd && t.dataset.rd) { ev.stopPropagation(); await rdSave(dd, {[t.dataset.rd]:t.value, ...(t.dataset.rd === "statut" && t.value === "Terminé" && !dd.fait ? {fait:today()} : {})}); render(true); return; }
+  const wk = t.closest && t.closest(".rd-w");
+  if (wk && t.dataset.rdw) { ev.stopPropagation(); const c = rdCfg(), k = wk.dataset.wk, cur = c.weeks[k] || {}; const v = t.dataset.rdw === "dispo" ? rdNum(t.value) : t.value.trim(); await rdSaveCfg({weeks:{...c.weeks, [k]:{...cur, [t.dataset.rdw]:v}}}); render(true); return; }
+}, true);
+document.addEventListener("input", ev => { const t = ev.target; if (t && t.dataset && t.dataset.rdq != null) { S.rdF.q = t.value; clearTimeout(S.rdQT); S.rdQT = setTimeout(() => { render(true); const el = document.querySelector("[data-rdq]"); if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }, 250); } });
+
+/* ---------- Congés payés : compteur N-1 / N, jours ouvrables ou ouvrés, import du tableau de suivi ---------- */
+S.cp = new Map(); S.cpIdx = new Map(); S.cpUi = {all:false, sheet:null};
+const CP_MODES = {ouvrables:{l:"Jours ouvrables (lundi → samedi)", acq:2.5, an:30}, ouvres:{l:"Jours ouvrés (lundi → vendredi)", acq:2.08, an:25}};
+const MOIS_CAP = MOIS.map(m => m.charAt(0).toUpperCase() + m.slice(1));
+function cpCfg(){ const c = (S.prefs && S.prefs.cp) || {}; const mode = CP_MODES[c.mode] ? c.mode : "ouvrables"; return {mode, acq:Number.isFinite(Number(c.acq)) && c.acq !== "" && c.acq != null ? Number(c.acq) : CP_MODES[mode].acq, start:/^\d{4}-\d{2}$/.test(c.start || "") ? c.start : "", first:c.first === "" || c.first == null ? null : Number(c.first), pm:Number(c.pm) || 6, round:c.round !== false, adj:Array.isArray(c.adj) ? c.adj : []}; }
+const cpSaveCfg = patch => savePrefs({cp:{...((S.prefs && S.prefs.cp) || {}), ...patch}});
+const ymLabel = ym => { const [y, m] = ym.split("-").map(Number); return `${MOIS_CAP[m - 1]} ${y}`; };
+/* jours décomptés : ouvrables (lun→sam) ou ouvrés (lun→ven), hors fériés ; le samedi qui ouvre une période n'est pas décompté (jour non travaillé) */
+function cpDays(r, mode){
+  const out = []; if (!validYmd(r.du) || !validYmd(r.au) || r.au < r.du) return out;
+  let started = false;
+  for (let d = r.du; d <= r.au; d = addDays(d, 1)) {
+    const w = parseYmd(d).getDay(), ok = mode === "ouvres" ? w >= 1 && w <= 5 : w >= 1 && w <= 6;
+    if (!ok || ferieOn(d)) continue;
+    if (!started && w === 6 && mode !== "ouvres") continue;
+    started = true; out.push(d);
+  }
+  return out;
+}
+function cpCount(r, mode){ const ds = cpDays(r, mode || cpCfg().mode); const calc = r.du === r.au && (r.part === "am" || r.part === "pm") ? (ds.length ? 0.5 : 0) : ds.length; return {calc, n:r.j === "" || r.j == null ? calc : Number(r.j), days:ds}; }
+function cpIndex(){
+  const idx = new Map();
+  for (const r of S.cp.values()) { if (!validYmd(r.du) || !validYmd(r.au)) continue; for (let d = r.du; d <= r.au && idx.size < 20000; d = addDays(d, 1)) idx.set(d, {id:r.id, part:r.du === r.au ? r.part || "j" : "j"}); }
+  S.cpIdx = idx;
+}
+/* lu par absOn : un jour de congé posé est une absence (hors fériés) */
+function cpOn(d){ const x = S.cpIdx && S.cpIdx.get(d); return x && capOn(d) > 0 ? {type:"Congé", part:x.part, cp:x.id} : null; }
+function cpSubscribe(db){ db.collection("conges").onSnapshot(snap => { S.cp = new Map(snap.docs.map(x => [x.id, {...x.data(), id:x.id}])); cpIndex(); schedule(); }, () => {}); }
+const cpId = () => "cp" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+async function cpPut(r){ const id = r.id || cpId(), d = {du:r.du, au:r.au, part:r.part || "j", j:r.j === "" || r.j == null ? "" : Number(r.j), note:r.note || "", src:r.src || "app", updated:nowIso()}; S.cp.set(id, {...d, id}); cpIndex(); schedule(); await S.db.doc("conges/" + id).set(d); return id; }
+async function cpDel(id){ S.cp.delete(id); cpIndex(); schedule(); await S.db.doc("conges/" + id).delete(); }
+/* modification depuis Heures : choisir « Congé » pose un jour, changer un jour posé le retire de sa période */
+async function cpDayChange(d, f, v){
+  const x = S.cpIdx.get(d), r = x && S.cp.get(x.id);
+  if (f === "part") { if (!r) return false; if (r.du === r.au) { await cpPut({...r, part:v, j:""}); return true; } await cpCut(r, d); await cpPut({du:d, au:d, part:v}); return true; }
+  if (r) { if (v === "Congé") return true; await cpCut(r, d); return !v; }
+  if (v === "Congé") { await cpPut({du:d, au:d, part:"j"}); return true; }
+  return false;
+}
+async function cpCut(r, d){
+  if (r.du === r.au) return cpDel(r.id);
+  if (d === r.du) return cpPut({...r, du:addDays(d, 1), j:""});
+  if (d === r.au) return cpPut({...r, au:addDays(d, -1), j:""});
+  await cpPut({...r, au:addDays(d, -1), j:""}); await cpPut({du:addDays(d, 1), au:r.au, part:"j", note:r.note, src:r.src});
+}
+/* compteur mois par mois */
+function cpLedger(cfg, ranges){
+  cfg = cfg || cpCfg(); ranges = ranges || [...S.cp.values()];
+  if (!cfg.start) return {rows:[], per:[]};
+  const taken = new Map(), dates = new Map();
+  for (const r of ranges) { const c = cpCount(r, cfg.mode); if (!c.n && !c.calc) continue;
+    const by = new Map(); c.days.forEach(d => by.set(monthOf(d), (by.get(monthOf(d)) || 0) + (c.days.length === 1 && c.calc === 0.5 ? 0.5 : 1)));
+    const diff = c.n - c.calc, lastM = c.days.length ? monthOf(c.days[c.days.length - 1]) : monthOf(r.du); if (diff) by.set(lastM, (by.get(lastM) || 0) + diff);
+    for (const [m, n] of by) { taken.set(m, (taken.get(m) || 0) + n); if (!dates.has(m)) dates.set(m, []); dates.get(m).push(r); } }
+  const adj = new Map(); for (const a of cfg.adj) if (a && /^\d{4}-\d{2}$/.test(a.ym)) adj.set(a.ym, (adj.get(a.ym) || 0) + (Number(a.j) || 0));
+  const lastT = [...taken.keys()].sort().pop() || cfg.start, curPerEnd = (() => { const t = monthOf(today()), [y, m] = t.split("-").map(Number); return cfg.pm === 1 ? `${y}-12` : `${m >= cfg.pm ? y + 1 : y}-${z2(cfg.pm - 1)}`; })();
+  const end = [lastT, curPerEnd].sort().pop();
+  const rows = [], per = []; let na = 0, np = 0, n1a = null, n1p = 0, first = true, P = null;
+  for (let ym = cfg.start; ym <= end && rows.length < 400; ym = ymAdd(ym, 1)) {
+    const mo = Number(ym.slice(5));
+    if (mo === cfg.pm && !first) { const lost = n1a === null ? 0 : Math.max(0, n1a - n1p); if (P) P.lost = lost; n1a = na; n1p = np; na = 0; np = 0; }
+    if (mo === cfg.pm || first) { P = {from:ym, to:ymAdd(ym, ((cfg.pm - mo + 11) % 12)), rows:[], lost:0}; per.push(P); }
+    na += (first && cfg.first != null ? cfg.first : cfg.acq) + (adj.get(ym) || 0); first = false;
+    if (cfg.round !== false && mo === (cfg.pm === 1 ? 12 : cfg.pm - 1)) na = Math.ceil(na - 1e-9);   /* fraction de jour acquise : arrondie à l'entier supérieur en fin de période */
+    let t = taken.get(ym) || 0; const pose = t;
+    if (n1a !== null) { const room = Math.max(0, n1a - n1p), u = Math.min(room, t); n1p += u; t -= u; }
+    np += t;
+    const row = {ym, n1a, n1p:n1a === null ? null : n1p, n1s:n1a === null ? null : n1a - n1p, na, np, ns:na - np, tot:(n1a === null ? 0 : n1a - n1p) + na - np, pose, ranges:dates.get(ym) || [], adj:adj.get(ym) || 0, newPer:mo === cfg.pm};
+    rows.push(row); P.rows.push(row);
+  }
+  return {rows, per};
+}
+const cpRangeShort = r => { const c = cpCount(r), f = d => d.slice(8, 10) + "/" + d.slice(5, 7); return `${f(r.du)}${r.au !== r.du ? " → " + f(r.au) : r.part === "am" ? " matin" : r.part === "pm" ? " ap.-midi" : ""} · ${jfmt(c.n)} j${r.note ? " · " + r.note : ""}`; };
+const cpRangeTxt = r => { const c = cpCount(r); return `${fmt(r.du, true)}${r.au !== r.du ? " → " + fmt(r.au, true) : r.part === "am" ? " (matin)" : r.part === "pm" ? " (après-midi)" : ""} (${jfmt(c.n)} j)${r.note ? " : " + r.note : ""}`; };
+
+/* ---------- vue (Heures ▸ Congés) ---------- */
+function viewConges(nav){
+  const cfg = cpCfg(), ro = S.canWrite === false, td = today(), tm = monthOf(td);
+  const head = `<div class="view-head plan-head"><div><div class="eyebrow">Congés payés · ${esc(collabName())}</div><h1>Congés</h1></div><div class="pnav">${nav}</div></div>`;
+  const legacy = cpLegacy();
+  const legacyHtml = legacy.length && !ro ? `<div class="dec-warn cp-leg">${legacy.length} jour${legacy.length > 1 ? "s" : ""} « Congé » saisi${legacy.length > 1 ? "s" : ""} dans Heures avant cette version ne ${legacy.length > 1 ? "sont" : "est"} pas encore dans le compteur. <button class="btn sm" data-act="cp-legacy">Les reprendre</button></div>` : "";
+  if (!cfg.start) return head + legacyHtml + `<section class="panel cp-setup"><h2>Démarrer le compteur</h2><p>Importe ton tableau de suivi des congés (colonnes Période, Acquis, Pris, Solde, Dates des congés posés…) : les hypothèses et toutes les périodes posées sont reprises, avec un aperçu avant validation. Ou renseigne les hypothèses à la main.</p>
+    ${ro ? "" : `<div class="row"><button class="btn primary" data-act="cp-import">Importer mon tableau de congés…</button><button class="btn" data-act="cp-set">Renseigner à la main</button></div>`}<input type="file" id="cp-file" accept=".xlsx,.xlsm,.xls" hidden></section>`;
+  const L = cpLedger(cfg), cur = L.rows.find(r => r.ym === tm) || L.rows[L.rows.length - 1] || {}, curP = L.per.find(p => p.from <= tm && p.to >= tm) || L.per[L.per.length - 1];
+  const fut = [...S.cp.values()].filter(r => r.au >= td).sort((a, b) => a.du.localeCompare(b.du));
+  const futN = fut.reduce((s, r) => s + cpCount({...r, du:r.du < td ? td : r.du, j:r.du < td ? "" : r.j}).n, 0);
+  const endP = curP ? curP.to : "", pmL = MOIS[(cfg.pm + 10) % 12];
+  const lastPer = L.per[L.per.length - 1], endRow = lastPer && lastPer.rows[lastPer.rows.length - 1];
+  const kpi = `<div class="kpi-row dec-kpis cp-k">
+    <div class="kc"><span class="kc-l">Solde N-1</span><span class="kc-v ${cur.n1s > 0 ? "warn" : ""}">${cur.n1s == null ? "—" : jfmt(cur.n1s) + " j"}</span><span class="kc-n mut">${cur.n1s > 0 ? `à prendre avant fin ${pmL} ${endP.slice(0, 4)}` : cur.n1a != null ? `${jfmt(cur.n1a)} acquis · ${jfmt(cur.n1p)} pris` : "pas encore de période close"}</span></div>
+    <div class="kc"><span class="kc-l">Solde N</span><span class="kc-v ${cur.ns < 0 ? "over" : ""}">${jfmt(cur.ns || 0)} j</span><span class="kc-n mut">${jfmt(cur.na || 0)} acquis · ${jfmt(cur.np || 0)} pris</span></div>
+    <div class="kc"><span class="kc-l">Solde total</span><span class="kc-v ${cur.tot < 0 ? "over" : "ok"}">${jfmt(cur.tot || 0)} j</span><span class="kc-n mut">fin ${MOIS[Number(tm.slice(5)) - 1]}</span></div>
+    <div class="kc"><span class="kc-l">Posés à venir</span><span class="kc-v">${jfmt(futN)} j</span><span class="kc-n mut">${fut.length} période${fut.length > 1 ? "s" : ""}</span></div>
+    <div class="kc"><span class="kc-l">Fin de période</span><span class="kc-v ${endRow && endRow.tot < 0 ? "over" : ""}">${endRow ? jfmt(endRow.tot) + " j" : "—"}</span><span class="kc-n mut">${endRow ? "au 31 " + MOIS[(cfg.pm + 10) % 12] + " " + endRow.ym.slice(0, 4) + ", congés posés compris" : ""}</span></div></div>`;
+  const tools = `<div class="dec-tools">${ro ? "" : `<button class="btn primary" data-act="cp-new">${I.plus} Poser des congés</button><button class="btn" data-act="cp-import">Importer mon tableau…</button>`}<button class="btn" data-act="cp-export">Exporter (format du tableau)</button>${ro ? "" : `<button class="btn ghost" data-act="cp-set">Hypothèses</button>`}<input type="file" id="cp-file" accept=".xlsx,.xlsm,.xls" hidden>
+    <span class="sub dec-hint">${esc(CP_MODES[cfg.mode].l)} · ${jfmt(cfg.acq)} j acquis par mois · période du 1er ${MOIS[cfg.pm - 1]} au 31 ${pmL} · depuis ${ymLabel(cfg.start).toLowerCase()}</span></div>`;
+  const list = [...S.cp.values()].sort((a, b) => b.du.localeCompare(a.du));
+  const shown = S.cpUi.all ? list : list.filter(r => r.au >= (curP ? curP.from : tm) + "-01" || r.au >= addDays(td, -365));
+  const rangeRow = r => { const c = cpCount(r), past = r.au < td, cur2 = r.du <= td && r.au >= td;
+    return `<div class="cp-r ${past ? "past" : ""} ${cur2 ? "cur" : ""}" data-cid="${esc(r.id)}"><button class="cp-main" data-act="cp-edit"><b>${fmt(r.du, true)}${r.au !== r.du ? ` → ${fmt(r.au, true)}` : r.part === "am" ? " · matin" : r.part === "pm" ? " · après-midi" : ""}</b><small>${JOURS[parseYmd(r.du).getDay()]}${r.au !== r.du ? " → " + JOURS[parseYmd(r.au).getDay()] : ""}${r.note ? " · " + esc(r.note) : ""}</small></button>
+      <span class="cp-n"><b>${jfmt(c.n)} j</b>${c.n !== c.calc ? `<small class="warn" title="Le calcul donne ${jfmt(c.calc)} j ; la valeur saisie ou importée est gardée">calcul ${jfmt(c.calc)} j</small>` : ""}</span><span class="cp-st">${cur2 ? "en cours" : past ? "pris" : "à venir"}</span></div>`; };
+  const listHtml = `<section class="panel cp-list"><div class="bd-h"><h2>Congés posés</h2><span class="sub">${list.length} période${list.length > 1 ? "s" : ""}</span></div>
+    ${shown.length ? `<div class="cp-rs">${shown.map(rangeRow).join("")}</div>` : '<p class="sub">Aucun congé posé sur la période en cours.</p>'}
+    ${list.length > shown.length || S.cpUi.all ? `<button class="btn ghost sm" data-act="cp-all">${S.cpUi.all ? "Masquer l'historique" : `Voir tout l'historique (${list.length - shown.length} de plus)`}</button>` : ""}</section>`;
+  const n = v => v == null ? "" : Math.abs(v) < 0.005 ? "–" : jfmt(v);
+  const perHtml = [...L.per].reverse().map((p, i) => { const open = i < 2 || S.cpUi["p" + p.from], tot = p.rows.reduce((s, r) => s + r.pose, 0);
+    return `<details class="cp-per" data-p="${p.from}" ${open ? "open" : ""}><summary><b>Période ${ymLabel(p.from).toLowerCase()} → ${ymLabel(p.to).toLowerCase()}</b><span class="sub">${jfmt(tot)} j posés${p.lost > 0 ? ` · <span class="warn">${jfmt(p.lost)} j de N-1 non pris</span>` : ""}</span></summary>
+      <div class="tbl-wrap"><table class="tbl cp-t"><thead><tr><th>Mois</th><th class="num">Acquis N-1</th><th class="num">Pris N-1</th><th class="num">Solde N-1</th><th class="num">Acquis N</th><th class="num">Pris N</th><th class="num">Solde N</th><th class="num">Solde total</th><th class="num">Posés</th><th class="cp-dth">Dates</th></tr></thead><tbody>
+      ${p.rows.map(r => `<tr class="${r.ym === tm ? "is-cur" : ""} ${r.ym > tm ? "fut" : ""}"><td>${ymLabel(r.ym)}${r.adj ? ` <small class="mut">(${r.adj > 0 ? "+" : ""}${jfmt(r.adj)} ajusté)</small>` : ""}</td><td class="num">${n(r.n1a)}</td><td class="num">${n(r.n1p)}</td><td class="num">${n(r.n1s)}</td><td class="num">${n(r.na)}</td><td class="num">${n(r.np)}</td><td class="num ${r.ns < 0 ? "neg" : ""}">${n(r.ns)}</td><td class="num ${r.tot < 0 ? "neg" : ""}"><b>${n(r.tot)}</b></td><td class="num">${r.pose ? jfmt(r.pose) : ""}</td><td class="cp-dt">${r.ranges.map(x => `<span>${esc(cpRangeShort(x))}</span>`).join("")}</td></tr>`).join("")}
+      </tbody></table></div></details>`; }).join("");
+  return head + legacyHtml + kpi + tools + `<div class="cp-lay">${listHtml}<section class="panel cp-led"><div class="bd-h"><h2>Compteur mois par mois</h2><span class="sub">les jours posés sont pris d'abord sur N-1, puis sur N ; au 1er ${MOIS[cfg.pm - 1]}, N devient N-1</span></div>${perHtml}</section></div>`;
+}
+/* fiche : poser / modifier une période */
+function cpSheet(r){
+  let d0 = today(); for (let i = 0; i < 7 && !(capOn(d0) > 0 && !ferieOn(d0)); i++) d0 = addDays(d0, 1);
+  const x = r || {du:d0, au:d0, part:"j", j:"", note:""}, ro = S.canWrite === false;
+  syncSheet(r ? "Congés posés" : "Poser des congés", `<div class="ao-form f2 cp-form">
+      <label class="field"><span class="lbl">Du</span><input type="date" id="cp-du" value="${esc(x.du)}"></label>
+      <label class="field"><span class="lbl">Au (inclus)</span><input type="date" id="cp-au" value="${esc(x.au)}"></label>
+      <label class="field cp-part"><span class="lbl">Sur une seule journée</span><select id="cp-part">${Object.entries(ABS_PART).map(([k, v]) => `<option value="${k}" ${x.part === k ? "selected" : ""}>${v}</option>`).join("")}</select></label>
+      <label class="field"><span class="lbl">Jours (vide = calcul)</span><input type="text" inputmode="decimal" id="cp-j" value="${x.j === "" || x.j == null ? "" : jfmt(Number(x.j))}" placeholder="calcul"></label>
+      <label class="field wide"><span class="lbl">Note</span><input type="text" id="cp-note" value="${esc(x.note || "")}" placeholder="ex. Pâques, Ascension…"></label></div>
+    <div class="cp-calc" id="cp-calc"></div>`,
+    `${r && !ro ? `<button class="btn danger" data-act="cp-del" data-cid="${esc(r.id)}">Supprimer</button>` : ""}<span class="spacer"></span><button class="btn" data-act="ao-ov-close">Annuler</button>${ro ? "" : `<button class="btn primary" data-act="cp-ok" data-cid="${esc(r ? r.id : "")}">${r ? "Enregistrer" : "Poser"}</button>`}`, "cp-ov");
+  cpCalcLive();
+}
+function cpRead(){ const v = id => (document.getElementById(id) || {}).value || ""; const du = v("cp-du"), au = v("cp-au") || du; return {du, au:au < du ? du : au, part:du === au ? v("cp-part") || "j" : "j", j:v("cp-j").trim() === "" ? "" : rdNum(v("cp-j")), note:v("cp-note").trim()}; }
+function cpCalcLive(){
+  const el = document.getElementById("cp-calc"); if (!el) return;
+  const x = cpRead(), cfg = cpCfg(); document.querySelector(".cp-part")?.toggleAttribute("hidden", x.du !== x.au);
+  if (!validYmd(x.du)) { el.innerHTML = ""; return; }
+  const c = cpCount({...x, j:""}, cfg.mode), skip = [];
+  for (let d = x.du; d <= x.au && skip.length < 40; d = addDays(d, 1)) { if (c.days.includes(d)) continue; const f = ferieOn(d), w = parseYmd(d).getDay(); skip.push(`${JOURS_COURTS[w]} ${fmt(d)} ${f ? "(férié : " + f + ")" : w === 0 ? "(dimanche)" : w === 6 ? (cfg.mode === "ouvres" ? "(samedi)" : "(samedi en début de période)") : ""}`); }
+  const L = cfg.start ? cpLedger(cfg, [...[...S.cp.values()].filter(r => r.id !== (document.querySelector("[data-act=cp-ok]") || {dataset:{}}).dataset.cid), {...x, id:"tmp"}]) : null;
+  const after = L ? L.rows.find(r => r.ym === monthOf(x.au)) : null;
+  el.innerHTML = `<b>${jfmt(c.calc)} jour${c.calc > 1 ? "s" : ""} ${cfg.mode === "ouvres" ? "ouvré" : "ouvrable"}${c.calc > 1 ? "s" : ""}</b> décompté${c.calc > 1 ? "s" : ""}${x.j !== "" ? ` · <span class="warn">tu forces ${jfmt(Number(x.j))} j</span>` : ""}${skip.length ? `<small>Non décomptés : ${skip.map(esc).join(", ")}</small>` : ""}${after ? `<small>Solde total fin ${MOIS[Number(after.ym.slice(5)) - 1]} ${after.ym.slice(0, 4)} après cette pose : <b class="${after.tot < 0 ? "neg" : ""}">${jfmt(after.tot)} j</b> (N-1 ${jfmt(after.n1s || 0)} · N ${jfmt(after.ns)})</small>` : ""}`;
+}
+function cpSetSheet(){
+  const c = cpCfg(), rows = c.adj.length ? c.adj : [];
+  syncSheet("Hypothèses du compteur", `<div class="ao-form f2">
+      <label class="field wide"><span class="lbl">Mode de calcul</span><select id="cps-mode">${Object.entries(CP_MODES).map(([k, v]) => `<option value="${k}" ${c.mode === k ? "selected" : ""}>${v.l} : ${v.an} j par an</option>`).join("")}</select></label>
+      <label class="field"><span class="lbl">Jours acquis par mois</span><input type="text" inputmode="decimal" id="cps-acq" value="${jfmt(c.acq)}"></label>
+      <label class="field"><span class="lbl">Début de la période de référence</span><select id="cps-pm">${MOIS_CAP.map((m, i) => `<option value="${i + 1}" ${c.pm === i + 1 ? "selected" : ""}>1er ${m.toLowerCase()}</option>`).join("")}</select></label>
+      <label class="field"><span class="lbl">Premier mois du compteur</span><input type="month" id="cps-start" value="${esc(c.start || monthOf(today()))}"></label>
+      <label class="field"><span class="lbl">Acquis ce premier mois (arrivée en cours de mois)</span><input type="text" inputmode="decimal" id="cps-first" value="${c.first == null ? "" : jfmt(c.first)}" placeholder="${jfmt(c.acq)}"></label>
+      <label class="toggle field wide"><input type="checkbox" id="cps-round" ${c.round ? "checked" : ""}> <span>Arrondir les jours acquis à l'entier supérieur à la fin de chaque période (règle du Code du travail : 21,5 j → 22 j)</span></label>
+      <div class="field wide"><span class="lbl">Ajustements (bulletin de paie, report accordé…)</span><textarea id="cps-adj" rows="3" placeholder="une ligne par ajustement : 2026-06 +2 report accordé">${esc(rows.map(a => `${a.ym} ${a.j > 0 ? "+" : ""}${jfmt(a.j)}${a.note ? " " + a.note : ""}`).join("\n"))}</textarea><small class="tm-hint">Un ajustement s'ajoute aux jours acquis du mois indiqué (négatif pour retirer).</small></div></div>`,
+    `<span class="spacer"></span><button class="btn" data-act="ao-ov-close">Annuler</button><button class="btn primary" data-act="cp-set-ok">Enregistrer</button>`, "cp-ov");
+}
+
+/* ---------- import du tableau de suivi ---------- */
+function cpParseDates(txt, rowYm){
+  const out = [], warn = [];
+  const segs = String(txt || "").replace(/\/+/g, "/").split(/\s+·\s+|\s*;\s*|\n+/).map(s => s.trim()).filter(Boolean);
+  for (const seg of segs) {
+    const ds = [...seg.matchAll(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/g)]; if (!ds.length) continue;
+    const jm = seg.match(/\(\s*(\d+(?:[.,]\d+)?)\s*j\s*\)/i), note = (seg.split(/\)\s*:\s*/)[1] || "").trim();
+    const mk = (m, yDef) => { let y = Number(m[3]), fixed = false; if (y < 100) y += 2000; else if (y < 1900) { y = yDef; fixed = true; } return {d:`${y}-${z2(m[2])}-${z2(m[1])}`, fixed}; };
+    const rowY = rowYm ? Number(rowYm.slice(0, 4)) : new Date().getFullYear();
+    const a = mk(ds[0], rowY); let b = ds[1] ? mk(ds[1], Number(a.d.slice(0, 4))) : {d:a.d, fixed:false};
+    const w = [];
+    if (a.fixed) w.push(`année de début illisible « ${ds[0][0]} », corrigée en ${a.d.slice(0, 4)}`);
+    if (b.fixed) w.push(`année de fin illisible « ${ds[1][0]} », corrigée en ${b.d.slice(0, 4)}`);
+    if (!validYmd(a.d) || !validYmd(b.d)) { warn.push(`date illisible : « ${seg} »`); continue; }
+    if (b.d < a.d) { let nd = a.d.slice(0, 4) + b.d.slice(4); if (nd < a.d) nd = (Number(a.d.slice(0, 4)) + 1) + b.d.slice(4); w.push(`fin « ${ds[1][0]} » avant le début, corrigée en ${fmt(nd, true)}`); b = {d:nd}; }
+    if (rowYm && monthOf(a.d) !== rowYm && monthOf(b.d) !== rowYm) w.push(`dates hors du mois de la ligne (${ymLabel(rowYm).toLowerCase()})`);
+    const part = a.d === b.d ? (/apr[eè]s[- ]midi/i.test(seg) ? "pm" : /matin/i.test(seg) ? "am" : "j") : "j";
+    out.push({du:a.d, au:b.d, part, j:jm ? rdNum(jm[1]) : "", note, src:"import", warn:w, seg});
+  }
+  return {out, warn};
+}
+async function cpParse(file){
+  const X = await loadXLSX(), wb = X.read(await file.arrayBuffer(), {type:"array"});
+  for (const sn of wb.SheetNames) {
+    const R = X.utils.sheet_to_json(wb.Sheets[sn], {header:1, raw:true, defval:""});
+    const hi = R.findIndex(row => row.some(c => norm(c) === "periode") && row.some(c => /dates des conges/.test(norm(c))));
+    if (hi < 0) continue;
+    const H = R[hi].map(c => norm(c)), col = re => H.findIndex(c => re.test(c));
+    const iP = col(/^periode$/), iD = col(/dates des conges/), iA = col(/^acquis n$/), iT = col(/^solde total$/), iJ = col(/jours poses/);
+    const hyp = {}; R.forEach(row => row.forEach((c, j) => { const t = norm(c); const nx = () => { for (let k = j + 1; k < row.length; k++) if (row[k] !== "" && row[k] != null) return rdNum(row[k]); return ""; };
+      if (/jours acquis ?\/ ?mois/.test(t)) hyp.acq = nx(); if (/acquis 1er mois|acquis premier mois/.test(t)) hyp.first = nx(); if (/ouvres/.test(t) && !/ouvrables/.test(t)) hyp.mode = "ouvres"; }));
+    const rows = [], ranges = [], warn = [];
+    for (const row of R.slice(hi + 1)) {
+      const p = String(row[iP] ?? "").trim(), m = norm(p).match(/^([a-zéû]+)\s+(\d{4})$/); if (!m) continue;
+      const mi = MOIS.findIndex(x => norm(x) === m[1]); if (mi < 0) continue;
+      const ym = `${m[2]}-${z2(mi + 1)}`, num = v => { const s = String(v ?? "").trim(); return s === "" || s === "-" || s === "–" ? 0 : rdNum(v) === "" ? 0 : rdNum(v); };
+      rows.push({ym, acq:iA >= 0 ? num(row[iA]) : null, tot:iT >= 0 ? num(row[iT]) : null, pose:iJ >= 0 ? num(row[iJ]) : 0});
+      const P = cpParseDates(row[iD], ym); warn.push(...P.warn); P.out.forEach(x => ranges.push({...x, ym}));
+      const sum = P.out.reduce((s, x) => s + (Number(x.j) || 0), 0); if (iJ >= 0 && Math.abs(sum - num(row[iJ])) > 0.01 && P.out.length) warn.push(`${ymLabel(ym)} : « jours posés » = ${jfmt(num(row[iJ]))} mais les dates totalisent ${jfmt(sum)} j`);
+    }
+    if (!rows.length) continue;
+    const mode = hyp.mode || (hyp.acq !== "" && hyp.acq != null && hyp.acq < 2.3 ? "ouvres" : "ouvrables");
+    const cfg = {mode, acq:hyp.acq === "" || hyp.acq == null ? CP_MODES[mode].acq : hyp.acq, start:rows[0].ym, first:hyp.first === "" || hyp.first == null ? null : hyp.first, pm:6, adj:[]};
+    return {sheet:sn, rows, ranges, warn, cfg};
+  }
+  return {err:"Aucune feuille avec les colonnes « Période » et « Dates des congés posés »."};
+}
+async function cpImport(file){
+  let P; try { P = await cpParse(file); } catch (e) { console.warn(e); toast("Ce fichier n'a pas pu être lu."); return; }
+  if (P.err) { toast(P.err); return; }
+  const app = [...S.cp.values()], key = r => r.du + "|" + r.au, byK = new Map(app.map(r => [key(r), r])), seen = new Set();
+  const items = P.ranges.map(x => { const a = byK.get(key(x)); if (a) seen.add(a.id); const c = cpCount({...x, j:""}, P.cfg.mode).calc;
+    return {x, a, calc:c, kind:!a ? "new" : (String(a.j ?? "") === String(x.j ?? "") || (a.j === "" && Number(x.j) === cpCount(a, P.cfg.mode).n)) && (a.note || "") === (x.note || "") && (a.part || "j") === (x.part || "j") ? "same" : "upd"}; });
+  const only = app.filter(r => !seen.has(r.id));
+  /* contrôle : le compteur recalculé avec les hypothèses du fichier redonne-t-il les soldes du fichier ? */
+  const L = cpLedger(P.cfg, P.ranges.map(x => ({...x, j:x.j === "" ? "" : x.j}))), byYm = new Map(L.rows.map(r => [r.ym, r]));
+  const chk = P.rows.filter(r => r.tot != null).map(r => ({ym:r.ym, f:r.tot, a:(byYm.get(r.ym) || {}).tot})), bad = chk.filter(c => c.a == null || Math.abs(c.a - c.f) > 0.01);
+  S.cpImp = {P, items, only, chk, bad}; cpImpSheet();
+}
+function cpImpSheet(){
+  const {P, items, only, chk, bad} = S.cpImp, cfg = cpCfg(), n = k => items.filter(i => i.kind === k).length;
+  const cfgDiff = !cfg.start || cfg.mode !== P.cfg.mode || cfg.acq !== P.cfg.acq || cfg.start !== P.cfg.start || cfg.first !== P.cfg.first;
+  const rows = items.filter(i => i.kind !== "same" || i.x.warn.length || (i.x.j !== "" && Number(i.x.j) !== i.calc)).map(i => {
+    const diffCalc = i.x.j !== "" && Number(i.x.j) !== i.calc;
+    return `<tr class="${i.kind === "new" ? "st-add" : i.kind === "upd" ? "st-repl" : "st-same"} ${i.x.warn.length || diffCalc ? "st-conf" : ""}"><td>${fmt(i.x.du, true)}${i.x.au !== i.x.du ? " → " + fmt(i.x.au, true) : ""}${i.x.note ? ` <small class="mut">${esc(i.x.note)}</small>` : ""}</td><td class="num">${i.x.j === "" ? jfmt(i.calc) : jfmt(Number(i.x.j))} j</td>
+      <td><span class="imp-st">${i.kind === "new" ? "Nouvelle" : i.kind === "upd" ? "Mise à jour" : "Identique"}</span>${diffCalc ? `<small class="warn cp-w">le calcul ${cfg.mode === "ouvres" || P.cfg.mode === "ouvres" ? "en jours ouvrés" : "en jours ouvrables"} donne ${jfmt(i.calc)} j : ta valeur (${jfmt(Number(i.x.j))} j) est gardée</small>` : ""}${i.x.warn.map(w => `<small class="warn cp-w">⚠ ${esc(w)}</small>`).join("")}</td></tr>`; }).join("");
+  syncSheet("Aperçu de l'import des congés", `<p class="sub" style="margin-top:0">Feuille « ${esc(P.sheet)} » : ${P.rows.length} mois (${ymLabel(P.rows[0].ym).toLowerCase()} → ${ymLabel(P.rows[P.rows.length - 1].ym).toLowerCase()}), ${items.length} période${items.length > 1 ? "s" : ""} de congés. Rien n'est enregistré avant « Valider ».</p>
+    <div class="imp-k"><span class="st-add"><b>${n("new")}</b> nouvelle${n("new") > 1 ? "s" : ""}</span><span class="st-repl"><b>${n("upd")}</b> mise${n("upd") > 1 ? "s" : ""} à jour</span><span class="st-same"><b>${n("same")}</b> identique${n("same") > 1 ? "s" : ""}</span>${only.length ? `<span><b>${only.length}</b> seulement dans l'app (gardée${only.length > 1 ? "s" : ""})</span>` : ""}</div>
+    <div class="cp-hyp"><b>Hypothèses lues :</b> ${esc(CP_MODES[P.cfg.mode].l)}, ${jfmt(P.cfg.acq)} j par mois, départ ${ymLabel(P.cfg.start).toLowerCase()}${P.cfg.first != null ? ` (${jfmt(P.cfg.first)} j le premier mois)` : ""}, période au 1er juin.
+      ${cfgDiff ? `<label class="toggle imp-ag"><input type="checkbox" id="cp-imp-cfg" ${!cfg.start ? "checked" : ""}> <span>Appliquer ces hypothèses${cfg.start ? ` (actuellement : ${esc(CP_MODES[cfg.mode].l.toLowerCase())}, ${jfmt(cfg.acq)} j/mois, départ ${ymLabel(cfg.start).toLowerCase()})` : ""}</span></label>` : ""}</div>
+    <p class="cp-chk ${bad.length ? "warn" : "ok"}">${bad.length ? `⚠ Le compteur recalculé diffère du fichier sur ${bad.length} mois sur ${chk.length} : ${bad.slice(0, 4).map(b => `${ymLabel(b.ym).toLowerCase()} (fichier ${jfmt(b.f)} j, calcul ${b.a == null ? "—" : jfmt(b.a)} j)`).join(", ")}${bad.length > 4 ? "…" : ""}` : `✓ Contrôle : le compteur recalculé redonne exactement les soldes du fichier sur les ${chk.length} mois.`}</p>
+    ${P.warn.length ? `<ul class="cp-warn">${P.warn.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
+    ${rows ? `<div class="tbl-wrap imp-wrap"><table class="tbl imp-t cp-it"><tbody>${rows}</tbody></table></div>` : ""}`,
+    `<span class="spacer"></span><button class="btn" data-act="ao-ov-close">Annuler</button><button class="btn primary" data-act="cp-impok">Valider l'import</button>`, "imp-ov");
+}
+async function cpImpApply(){
+  const I2 = S.cpImp; if (!I2) return; const applyCfg = (document.getElementById("cp-imp-cfg") || {checked:!cpCfg().start}).checked;
+  document.querySelector(".sy-ov")?.remove(); toast("Import en cours…");
+  if (applyCfg) await cpSaveCfg({mode:I2.P.cfg.mode, acq:I2.P.cfg.acq, start:I2.P.cfg.start, first:I2.P.cfg.first, pm:I2.P.cfg.pm});
+  let nN = 0, nU = 0;
+  for (const i of I2.items) { if (i.kind === "new") { await cpPut({du:i.x.du, au:i.x.au, part:i.x.part, j:i.x.j, note:i.x.note, src:"import"}); nN++; } else if (i.kind === "upd") { await cpPut({...i.a, part:i.x.part || i.a.part, j:i.x.j, note:i.x.note || i.a.note}); nU++; } }
+  S.cpImp = null; toast(`Congés : ${nN} période${nN > 1 ? "s" : ""} ajoutée${nN > 1 ? "s" : ""}, ${nU} mise${nU > 1 ? "s" : ""} à jour`); render(true);
+}
+/* jours « Congé » saisis dans Heures avant le compteur */
+function cpLegacy(){ const out = []; for (const doc of Object.values(S.decDocs || {})) for (const [d, a] of Object.entries((doc && doc.abs) || {})) if (a && a.type === "Congé" && !S.cpIdx.has(d)) out.push({d, part:a.part || "j"}); return out.sort((a, b) => a.d.localeCompare(b.d)); }
+async function cpLegacyApply(){
+  const L = cpLegacy(); if (!L.length) return; let cur = null; const ranges = [];
+  for (const x of L) { if (x.part !== "j") { ranges.push({du:x.d, au:x.d, part:x.part}); continue; }
+    if (cur) { let gap = false; for (let d = addDays(cur.au, 1); d < x.d; d = addDays(d, 1)) if (capOn(d) > 0 && !ferieOn(d)) { gap = true; break; } if (!gap) { cur.au = x.d; continue; } }
+    cur = {du:x.d, au:x.d, part:"j"}; ranges.push(cur); }
+  for (const r of ranges) await cpPut({...r, src:"heures"});
+  const months = [...new Set(L.map(x => monthOf(x.d)))]; for (const m of months) await decSave(m, c => { for (const x of L) if (monthOf(x.d) === m && c.abs[x.d] && c.abs[x.d].type === "Congé") delete c.abs[x.d]; });
+  toast(`${ranges.length} période${ranges.length > 1 ? "s" : ""} de congés reprise${ranges.length > 1 ? "s" : ""}`); render(true);
+}
+/* ---------- export au format du tableau ---------- */
+async function cpExport(){
+  const cfg = cpCfg(), L = cpLedger(cfg); if (!L.rows.length) { toast("Renseigne d'abord les hypothèses ou importe ton tableau."); return; }
+  const wb = await xlBook(), ws = wb.addWorksheet("Congés payés", {views:[{state:"frozen", ySplit:4}]});
+  const NAVY = "FF1F3864", fill = c => ({type:"pattern", pattern:"solid", fgColor:{argb:c}}), thin = {style:"thin", color:{argb:"FFBFBFBF"}}, box = {top:thin, left:thin, bottom:thin, right:thin};
+  ws.columns = [16, 11, 10, 11, 10, 10, 10, 12, 12, 60, 10, 8, 30, 8].map(w => ({width:w}));
+  ws.getCell("A1").value = "Congés payés"; ws.getCell("A1").font = {bold:true, size:16, color:{argb:NAVY}};
+  ws.getCell("A2").value = `N = période de référence en cours (1er ${MOIS[cfg.pm - 1]} → 31 ${MOIS[(cfg.pm + 10) % 12]}), N-1 = période précédente. ${jfmt(cfg.acq)} jours acquis par mois (${CP_MODES[cfg.mode].l.toLowerCase()}). Contrôle = (acquis − pris − solde) sur N-1 et N : doit être 0.`;
+  ws.getCell("A2").font = {italic:true, color:{argb:"FF595959"}};
+  const H = ["Période", "Acquis N-1", "Pris N-1", "Solde N-1", "Acquis N", "Pris N", "Solde N", "Solde total", "Jours posés ce mois", "Dates des congés posés", "Contrôle", "N° mois", "Hypothèses", ""];
+  H.forEach((h, i) => { const c = ws.getCell(4, i + 1); c.value = h; if (i < 12) { c.font = {bold:true, color:{argb:"FFFFFFFF"}}; c.fill = fill(NAVY); c.border = box; c.alignment = {vertical:"middle", wrapText:true}; } else c.font = {bold:true}; });
+  ws.getRow(4).height = 30;
+  L.rows.forEach((r, i) => {
+    const R = 5 + i, v = [ymLabel(r.ym), r.n1a, r.n1p, null, r.na, r.np, null, null, r.pose || null, r.ranges.map(cpRangeTxt).join(" · ") || null, null, Number(r.ym.slice(5))];
+    v.forEach((x, j) => { ws.getCell(R, j + 1).value = x; });
+    if (r.n1a != null) ws.getCell(R, 4).value = {formula:`B${R}-C${R}`, result:r.n1s};
+    ws.getCell(R, 7).value = {formula:`E${R}-F${R}`, result:r.ns}; ws.getCell(R, 8).value = {formula:`N(D${R})+G${R}`, result:r.tot};
+    ws.getCell(R, 11).value = {formula:`(N(B${R})-N(C${R})-N(D${R}))+(E${R}-F${R}-G${R})`, result:0};
+    for (let j = 1; j <= 12; j++) { const c = ws.getCell(R, j); c.border = r.newPer ? {...box, top:{style:"thick", color:{argb:"FF2F75B5"}}} : box; if (j >= 2 && j <= 9 || j === 11) c.numFmt = '0.0;-0.0;"-"'; if (r.ym === monthOf(today())) c.fill = fill("FFFFF2CC"); }
+    ws.getCell(R, 10).alignment = {wrapText:true, vertical:"top"};
+  });
+  const last = 4 + L.rows.length, T = last + 1;
+  ws.getCell(T, 1).value = "Total jours posés"; ws.getCell(T, 1).font = {bold:true}; ws.getCell(T, 9).value = {formula:`SUM(I5:I${last})`, result:L.rows.reduce((s, r) => s + r.pose, 0)}; ws.getCell(T, 9).font = {bold:true}; ws.getCell(T, 9).numFmt = "0.0";
+  ws.getCell("M5").value = "Jours acquis / mois"; ws.getCell("N5").value = cfg.acq;
+  ws.getCell("M6").value = `Acquis 1er mois (${MOIS_COURTS[Number(cfg.start.slice(5)) - 1]} ${cfg.start.slice(0, 4)})`; ws.getCell("N6").value = cfg.first == null ? cfg.acq : cfg.first;
+  ws.getCell("M7").value = "Mode de calcul"; ws.getCell("N7").value = cfg.mode === "ouvres" ? "ouvrés" : "ouvrables";
+  ws.addConditionalFormatting({ref:`D5:H${last}`, rules:[{type:"cellIs", operator:"lessThan", formulae:["0"], style:{font:{bold:true, color:{argb:"FFC00000"}}}}]});
+  ws.addConditionalFormatting({ref:`K5:K${last}`, rules:[{type:"expression", formulae:[`ABS(K5)>0.001`], style:{font:{bold:true, color:{argb:"FFC00000"}}}}]});
+  ws.getCell(T + 2, 1).value = `Ligne bleue épaisse = début d'une nouvelle période de référence (${MOIS[cfg.pm - 1]}) : le compteur N bascule en N-1.`; ws.getCell(T + 2, 1).font = {italic:true, color:{argb:"FF595959"}};
+  const wl = wb.addWorksheet("Congés posés"); wl.columns = [14, 14, 10, 40, 12].map(w => ({width:w}));
+  ["Du", "Au", "Jours", "Note", "Source"].forEach((h, i) => { const c = wl.getCell(1, i + 1); c.value = h; c.font = {bold:true, color:{argb:"FFFFFFFF"}}; c.fill = fill(NAVY); });
+  [...S.cp.values()].sort((a, b) => a.du.localeCompare(b.du)).forEach((r, i) => { const c = cpCount(r); [xlD(r.du), xlD(r.au), c.n, r.note || null, r.src === "import" ? "Import" : r.src === "heures" ? "Heures" : "App"].forEach((v, j) => { const x = wl.getCell(2 + i, j + 1); x.value = v; if (j < 2) x.numFmt = "dd/mm/yyyy"; }); });
+  await xlSave(wb, `Conges_${collabName()}_${today()}.xlsx`);
+}
+
+/* ---------- actions ---------- */
+document.addEventListener("click", async ev => {
+  const a = ev.target.closest && ev.target.closest('[data-act^="cp-"]'); if (!a) return;
+  ev.preventDefault(); ev.stopPropagation();
+  const act = a.dataset.act, cid = a.dataset.cid || a.closest("[data-cid]")?.dataset.cid, r = cid && S.cp.get(cid);
+  if (act === "cp-new") { cpSheet(null); return; }
+  if (act === "cp-edit") { if (r) cpSheet(r); return; }
+  if (act === "cp-all") { S.cpUi.all = !S.cpUi.all; render(true); return; }
+  if (act === "cp-import") { $("#cp-file").click(); return; }
+  if (act === "cp-impok") { await cpImpApply(); return; }
+  if (act === "cp-export") { try { await cpExport(); } catch (e) { console.warn(e); toast("Export impossible pour l'instant."); } return; }
+  if (act === "cp-set") { cpSetSheet(); return; }
+  if (act === "cp-legacy") { await cpLegacyApply(); return; }
+  if (act === "cp-set-ok") {
+    const v = id => (document.getElementById(id) || {}).value || "", acq = rdNum(v("cps-acq")), first = v("cps-first").trim() === "" ? null : rdNum(v("cps-first"));
+    const adj = v("cps-adj").split(/\n+/).map(l => l.trim().match(/^(\d{4}-\d{2})\s+([+-]?\d+(?:[.,]\d+)?)\s*(.*)$/)).filter(Boolean).map(m => ({ym:m[1], j:rdNum(m[2]), note:m[3] || ""}));
+    if (acq === "" || !/^\d{4}-\d{2}$/.test(v("cps-start"))) { toast("Indique les jours acquis par mois et le premier mois."); return; }
+    document.querySelector(".sy-ov")?.remove(); await cpSaveCfg({mode:v("cps-mode"), acq, pm:Number(v("cps-pm")) || 6, start:v("cps-start"), first, adj, round:!!(document.getElementById("cps-round") || {}).checked}); toast("Hypothèses enregistrées"); render(true); return;
+  }
+  if (act === "cp-ok") {
+    const x = cpRead(); if (!validYmd(x.du)) { toast("Indique la date de début."); return; }
+    const clash = [...S.cp.values()].find(o => o.id !== cid && o.du <= x.au && o.au >= x.du); if (clash) { toast(`Chevauche les congés du ${fmt(clash.du)}${clash.au !== clash.du ? " au " + fmt(clash.au) : ""}.`); return; }
+    document.querySelector(".sy-ov")?.remove();
+    try { await cpPut({...(r || {}), ...x, id:cid || undefined}); toast(`${jfmt(cpCount(x).n)} j de congés ${r ? "modifiés" : "posés"}`); } catch (e) { fail(e); }
+    render(true); return;
+  }
+  if (act === "cp-del" && r) {
+    if (!a.classList.contains("armed")) { a.classList.add("armed"); a.textContent = "Confirmer la suppression"; return; }
+    document.querySelector(".sy-ov")?.remove(); try { await cpDel(r.id); toast("Congés supprimés"); } catch (e) { fail(e); } render(true); return;
+  }
+}, true);
+document.addEventListener("change", async ev => {
+  const t = ev.target; if (!t) return;
+  if (t.id === "cp-file" && t.files && t.files[0]) { ev.stopPropagation(); const f = t.files[0]; t.value = ""; await cpImport(f); return; }
+  if (["cp-du", "cp-au", "cp-part", "cp-j"].includes(t.id)) { if (t.id === "cp-du") { const au = document.getElementById("cp-au"); if (au && au.value < t.value) au.value = t.value; } cpCalcLive(); }
+}, true);
+document.addEventListener("input", ev => { if (ev.target && ["cp-j", "cp-note"].includes(ev.target.id)) cpCalcLive(); });
+document.addEventListener("toggle", ev => { const d = ev.target; if (d && d.classList && d.classList.contains("cp-per")) S.cpUi["p" + d.dataset.p] = d.open; }, true);
+
 /* ---------- Rendu principal ---------- */
 function render(force){
   if (!force && S.ptrDown && Date.now() - S.ptrDown < 4000) { S.pendingRender = true; return; }
@@ -5801,7 +6610,7 @@ function render(force){
     return;
   }
   if (!force && PD && PD.active) { S.pendingRender = true; return; }
-  const html = {jour:viewJour, planning:viewPlanning, heures:viewHeuresTeam, chiffrage:viewChiffrage, equipe:viewProfil, profil:viewProfil, admin:viewAdmin, matrice:viewMatrice, bord:viewBord2, aide:viewAide, reglages:viewReglages2}[S.view]();
+  const html = {jour:viewJour, planning:viewPlanning, heures:viewHeuresTeam, chiffrage:viewChiffrage, equipe:viewProfil, profil:viewProfil, admin:viewAdmin, matrice:viewMatrice, bord:viewBord2, aide:viewAide, reglages:viewReglages2, rd:viewRd}[S.view]();
   v.innerHTML = teamBanner() + html; S.built = S.view;
   if (S.view === "chiffrage") aoLockPass(v);
   if (S.view === "chiffrage") v.querySelectorAll("textarea.fit").forEach(ta => { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + 2 + "px"; });
@@ -6031,6 +6840,7 @@ async function importJson(file, say){
   if (data.decompte && typeof data.decompte === "object") for (const [m, v] of Object.entries(data.decompte)) if (/^\d{4}-\d{2}$/.test(m) && v && (replace || !(S.decDocs || {})[m])) await S.db.doc("decompte/" + m).set(v);
   if (Array.isArray(data.ao)) for (const a of data.ao) if (a && a.id && (replace || !S.aos.has(a.id))) await S.db.doc("ao/" + a.id).set(a);
   if (data.uo && (replace || !S.uo)) await S.db.doc("meta/uo").set(data.uo);
+  for (const [k, M] of [["rd", S.rd], ["conges", S.cp]]) if (Array.isArray(data[k])) for (const x of data[k]) if (x && x.id && (replace || !(M && M.has(x.id)))) { const {id, ...body} = x; await S.db.doc(k + "/" + id).set(body); }
   say(`${n} tâche${n > 1 ? "s" : ""} importée${n > 1 ? "s" : ""}.`); toast("Import terminé");
 }
 async function importFile(file){
@@ -6078,7 +6888,7 @@ const EXP_HEAD = ["N°","Projet","Tâche","Statut","Priorité","Urgent","Importa
 async function doBackup(){
   const prog = $("#bak-progress"); const say = m => { if (prog) prog.textContent = m; };
   const dl = await window.claude.use("downloads");
-  const payload = {app:"TO DO BIM", format:2, saved: nowIso(), lists:S.lists, prefs:S.prefs || {}, decompte:S.decDocs || {}, ao:[...(S.aos || new Map()).values()], uo:S.uo || null, tasks:[...S.tasks.values()]};
+  const payload = {app:"TO DO BIM", format:2, saved: nowIso(), lists:S.lists, prefs:S.prefs || {}, decompte:S.decDocs || {}, ao:[...(S.aos || new Map()).values()], uo:S.uo || null, tasks:[...S.tasks.values()], rd:[...(S.rd || new Map()).values()], conges:[...(S.cp || new Map()).values()]};
   try { await dl.save({filename:`TODO_BIM_sauvegarde_${today()}.json`, data:JSON.stringify(payload, null, 1)});
     S.backupAt = today(); try { localStorage.setItem("todobim.backupAt", S.backupAt); } catch (e) {}
     say("Sauvegarde prête. Range-la dans Fichiers ▸ iCloud Drive."); render(true);
@@ -6260,6 +7070,7 @@ async function init(){
   db.collection("ao").onSnapshot(snap => { S.aos = new Map(snap.docs.map(d => [d.id, {...d.data(), id:d.id}])); if (S.view === "chiffrage") schedule(); }, () => {});
   db.doc("meta/societes").onSnapshot(s => { S.socs = (s.exists && s.data()) || null; if (S.view === "chiffrage") schedule(); }, () => {});
   db.doc("meta/uo").onSnapshot(s => { S.uo = (s.exists && s.data()) || null; if (S.view === "chiffrage") schedule(); }, () => {});
+  rdSubscribe(db); cpSubscribe(db);
   db.collection("decompte").onSnapshot(snap => { S.decDocs = Object.fromEntries(snap.docs.map(d => [d.id, d.data()])); if (S.view === "heures") schedule(); }, () => {});
   db.doc("meta/lists").onSnapshot(s => {
     const d = (s.exists && s.data()) || {};
