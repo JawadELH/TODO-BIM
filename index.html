@@ -685,6 +685,20 @@ input[type=range]{accent-color:var(--accent);width:100%}
 .btn.armed{border-color:var(--late);color:var(--late)}
 
 .dec-hid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;padding:6px 12px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);background:var(--surface-2)} .dec-hid b{color:var(--ink);font-weight:600}
+
+/* semaines repliables */
+.dec-wkbar{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.dec-wkg{border-top:1px solid var(--line-2)} .dec-wkg:first-of-type{border-top:0}
+.dec-wkh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;width:100%;border:0;background:var(--surface-2);color:var(--ink);padding:9px 12px;text-align:left;cursor:pointer}
+.dec-wkh:hover{background:color-mix(in srgb,var(--accent) 8%,var(--surface-2))} .dec-wkg.is-cur .dec-wkh{box-shadow:inset 3px 0 0 var(--accent)}
+.wk-ch{display:inline-block;transition:transform .15s ease;color:var(--muted)} .dec-wkg.coll .wk-ch{transform:rotate(-90deg)}
+.wk-t{font-weight:700;font-size:14px;display:flex;align-items:baseline;gap:8px} .wk-t small{font-weight:400;color:var(--muted);font-size:12px}
+.wk-cs{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto;justify-content:flex-end}
+.wk-c{font-style:normal;display:inline-flex;align-items:baseline;gap:4px;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;background:var(--bg)} .wk-c b{font-family:var(--f-mono);color:var(--ink);font-weight:600}
+.wk-c.dt-ok{border-color:color-mix(in srgb,var(--done) 50%,var(--line))} .wk-c.dt-under,.wk-c.dt-empty{border-color:color-mix(in srgb,var(--today) 55%,var(--line))} .wk-c.dt-over{border-color:color-mix(in srgb,var(--week) 55%,var(--line))} .wk-c.fut{opacity:.6}
+.wk-tot{display:flex;align-items:baseline;gap:6px;font-size:12.5px;color:var(--muted)} .wk-tot b{font-family:var(--f-mono);color:var(--ink);font-size:14px} .wk-tot em{font-style:normal;font-family:var(--f-mono);font-weight:600} .wk-tot em.over{color:var(--week)} .wk-tot em.under{color:var(--today)}
+.dec-wkg.coll .dec-wkb{display:none}
+@media (max-width:820px){ .wk-cs{display:none} .wk-tot{margin-left:auto} }
 /* Chiffrage AO : assistant */
 .lnk{border:0;background:none;padding:0;color:var(--accent);font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer}
 .btn.danger{color:var(--late)} .btn.armed,.ic-btn.armed{border-color:var(--late);color:var(--late);background:var(--late-soft)}
@@ -2841,18 +2855,35 @@ function decRecap(days){
   const projs = [...byProj].map(([k, m]) => ({k, m, c: k === "Autres références" || k === "Sans projet" ? "" : projColor(k)})).filter(x => x.m > 0).sort((a, b) => b.m - a.m);
   return {tot, cap:cap * 60, absJ, km, noRef, refs, projs};
 }
+function decWkColl(){ try { return new Set(JSON.parse(localStorage.getItem("todobim.decwk") || "[]")); } catch (e) { return new Set(); } }
+function decWkSave(c){ try { localStorage.setItem("todobim.decwk", JSON.stringify([...c].slice(-200))); } catch (e) {} }
 function viewHeures(){
   const {P, days} = decData(), R = decRecap(days), D = S.dec, td = today(), ro = S.canWrite === false;
   const ecart = R.tot - R.cap;
-  let html = "", wk = null, wTot = 0, wCap = 0;
-  const flushWk = () => { if (wk !== null && D.mode === "mois") html += `<div class="dec-wk"><span>Semaine ${wk}</span><b>${hfmt(wTot / 60)} h</b><small>/ ${hfmt(wCap)} h</small>${Math.abs(wTot / 60 - wCap) >= 0.25 ? `<em class="${wTot / 60 > wCap ? "over" : "under"}">${wTot / 60 > wCap ? "+" : "−"}${hfmt(Math.abs(wTot / 60 - wCap))} h</em>` : ""}</div>`; wTot = 0; wCap = 0; };
+  let html = "", wk = null, wTot = 0, wCap = 0, wHtml = "", wDays = [], wN = 0;
+  /* mois : les jours sont regroupés par semaine, chaque semaine se replie */
+  const coll = decWkColl();
+  const flushWk = () => {
+    if (wk === null) return;
+    if (D.mode !== "mois") { html += wHtml; }
+    else {
+      const key = wDays[0].d.slice(0, 4) + "-S" + wk, c = coll.has(key), e = wTot / 60 - wCap;
+      const chips = wDays.map(x => `<i class="wk-c ${x.st}" title="${JOURS[parseYmd(x.d).getDay()]} ${fmt(x.d)} : ${hfmt(x.tot / 60)} h / ${hfmt(x.cap)} h">${JOURS_COURTS[parseYmd(x.d).getDay()].slice(0, 2)}<b>${hfmt(x.tot / 60)}</b></i>`).join("");
+      html += `<section class="dec-wkg ${c ? "coll" : ""} ${mondayOf(wDays[0].d) === mondayOf(td) ? "is-cur" : ""}" data-wk="${key}">
+        <button class="dec-wkh" data-act="dec-wk" aria-expanded="${!c}"><span class="wk-ch">▾</span><span class="wk-t">Semaine ${wk}<small>${fmt(wDays[0].d)} – ${fmt(wDays[wDays.length - 1].d)} · ${wN} ligne${wN > 1 ? "s" : ""}</small></span>
+          <span class="wk-cs">${chips}</span><span class="wk-tot"><b>${hfmt(wTot / 60)} h</b><small>/ ${hfmt(wCap)} h</small>${Math.abs(e) >= 0.25 ? `<em class="${e > 0 ? "over" : "under"}">${e > 0 ? "+" : "−"}${hfmt(Math.abs(e))} h</em>` : ""}</span></button>
+        <div class="dec-wkb">${wHtml}</div></section>`;
+    }
+    wTot = 0; wCap = 0; wHtml = ""; wDays = []; wN = 0;
+  };
   for (const Dy of days) {
     const w = isoWeek(parseYmd(Dy.d)); if (w !== wk) { flushWk(); wk = w; }
-    const capN = Math.max(0, Dy.cap - Dy.absH); wTot += Dy.tot; wCap += capN;
+    const capN = Math.max(0, Dy.cap - Dy.absH); wTot += Dy.tot; wCap += capN; wN += Dy.rows.length;
     const dt = parseYmd(Dy.d), fut = Dy.d > td, diff = Dy.tot / 60 - capN;
     const st = !Dy.rows.length && capN > 0 && !fut ? "dt-empty" : Math.abs(diff) < 0.25 ? "dt-ok" : diff > 0 ? "dt-over" : fut ? "" : "dt-under";
     const ab = Dy.ab;
-    html += `<section class="dec-day ${Dy.d === td ? "is-today" : ""} ${fut ? "fut" : ""}" data-d="${Dy.d}">
+    wDays.push({d:Dy.d, tot:Dy.tot, cap:capN, st:Dy.d > td ? "fut" : st});
+    wHtml += `<section class="dec-day ${Dy.d === td ? "is-today" : ""} ${fut ? "fut" : ""}" data-d="${Dy.d}">
       <div class="dec-dh"><div class="dd-t"><b>${JOURS_COURTS[dt.getDay()]} ${z2(dt.getDate())}/${z2(dt.getMonth() + 1)}</b>${Dy.d === td ? '<span class="dd-auj">aujourd\'hui</span>' : ""}${fut ? '<span class="dd-auj fut">prévu</span>' : ""}</div>
         <div class="dd-tot ${st}"><b>${hfmt(Dy.tot / 60)} h</b><small> / ${hfmt(capN)} h</small></div>
         <div class="dd-abs">${ab && ab.auto ? `<span class="abs-chip">Férié · ${esc(ab.label)}</span>` : ""}
@@ -2883,6 +2914,7 @@ function viewHeures(){
     ${R.noRef ? `<div class="dec-warn">⚠ ${R.noRef} ligne${R.noRef > 1 ? "s" : ""} sans référence. Choisis-la sur la ligne (elle s'applique aux tâches concernées), ou associe une référence par défaut à chaque projet dans Réglages ▸ Décompte des heures.</div>` : ""}
     <div class="dec-layout">
       <div class="dec-main">
+        ${D.mode === "mois" && days.length ? `<div class="dec-wkbar"><span class="seg-label">Semaines</span><button class="btn ghost sm" data-act="dec-wkall" data-v="open">Tout déplier</button><button class="btn ghost sm" data-act="dec-wkall" data-v="fold">Tout replier</button><button class="btn ghost sm" data-act="dec-wkall" data-v="cur">Semaine en cours seulement</button></div>` : ""}
         ${D.mode === "annee" ? "" : `<div class="dec-row dec-head" aria-hidden="true"><div>Durée</div><div>Référence</div><div>Dépl.</div><div>Lieu</div><div>Km</div><div>Description</div><div>Facture</div><div></div></div>`}
         ${html || '<div class="empty"><p>Aucun jour sur cette période.</p></div>'}
       </div>
@@ -2946,6 +2978,8 @@ async function decAction(act, a){
     let n = 0; for (const m of months) { const k = ((S.decDocs[m] || {}).manual || []).filter(x => x.imp).length; if (k) { n += k; await decSave(m, c => { c.manual = c.manual.filter(x => !x.imp); }); } }
     toast(`${n} ligne${n > 1 ? "s" : ""} importée${n > 1 ? "s" : ""} retirée${n > 1 ? "s" : ""}`); render(true); return;
   }
+  if (act === "dec-wk") { const sec = a.closest(".dec-wkg"), k = sec.dataset.wk, c = decWkColl(); sec.classList.toggle("coll"); if (sec.classList.contains("coll")) c.add(k); else c.delete(k); a.setAttribute("aria-expanded", String(!sec.classList.contains("coll"))); decWkSave(c); return; }
+  if (act === "dec-wkall") { const c = decWkColl(), v = a.dataset.v; document.querySelectorAll(".dec-wkg").forEach(sec => { const fold = v === "fold" || (v === "cur" && !sec.classList.contains("is-cur")); sec.classList.toggle("coll", fold); sec.querySelector(".dec-wkh").setAttribute("aria-expanded", String(!fold)); if (fold) c.add(sec.dataset.wk); else c.delete(sec.dataset.wk); }); decWkSave(c); return; }
   if (act === "dec-today") { D.ref = today(); render(true); return; }
   if (act === "dec-prev" || act === "dec-next") {
     const k = act === "dec-next" ? 1 : -1, r = parseYmd(validYmd(D.ref) ? D.ref : today());
